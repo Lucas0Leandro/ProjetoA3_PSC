@@ -1,5 +1,7 @@
 package PessoaPackage;
 
-public class Aluno {
+public class Aluno extends Pessoa {
+    
+    private int RA;
     
 }
