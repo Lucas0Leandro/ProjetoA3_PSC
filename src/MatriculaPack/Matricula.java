@@ -1,4 +1,4 @@
-package MatriculaPackage;
+package MatriculaPack;
 
 import java.sql.Date;
 

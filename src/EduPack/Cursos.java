@@ -1,4 +1,4 @@
-package EduPackage;
+package EduPack;
 
 public class Cursos {
 

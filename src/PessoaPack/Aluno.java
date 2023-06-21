@@ -1,7 +1,7 @@
-package PessoaPackage;
+package PessoaPack;
 
 public class Aluno extends Pessoa {
     
-    private int RA;
+    private int ra;
     
 }

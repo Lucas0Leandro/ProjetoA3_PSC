@@ -1,4 +1,4 @@
-package PessoaPackage;
+package PessoaPack;
 
 public class Pessoa {
     

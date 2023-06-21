@@ -1,4 +1,4 @@
-package MatriculaPackage;
+package MatriculaPack;
 
 public class MatriculaController {
     
