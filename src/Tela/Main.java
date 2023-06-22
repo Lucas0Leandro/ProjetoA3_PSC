@@ -15,6 +15,7 @@ public class Main {
             System.out.println("Escolha uma das opcoes:");
             System.out.println("1 - Cadastros");
             System.out.println("2 - Consultas");
+            System.out.println("3 - Exclusao");
             System.out.println("0 - Sair");
             System.out.println("//--------------------//\n");
 
@@ -30,6 +31,11 @@ public class Main {
                     clearTerminal();
                     TelaConsulta consultas = new TelaConsulta();            //Cria o objeto que chama a classe TelaConsulta  
                     consultas.exibir();                                     //Chama a classe TelaConsulta com o método exibir
+                    break;
+                case 3:
+                    clearTerminal();
+                    TelaDelete deletar = new TelaDelete();                  //Cria o objeto que chama a classe TelaDelete  
+                    deletar.exibir();                                       //Chama a classe TelaDelete com o método exibir
                     break;
                 case 0:                                                     //Encerra o laço, consequentemente o programa
                     clearTerminal();
