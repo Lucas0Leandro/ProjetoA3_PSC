@@ -1,4 +1,4 @@
-package Tela;
+package Tela.Consultas;
 
 import java.util.Scanner;
 
@@ -16,8 +16,9 @@ public class TelaConsulta {
             System.out.println("2 - Professor");
             System.out.println("3 - Cursos");
             System.out.println("4 - Turmas");
-            System.out.println("5 - Lista de espera");
-            System.out.println("6 - Voltar");
+            System.out.println("5 - Salas");
+            System.out.println("6 - Lista de espera");
+            System.out.println("9 - Voltar");
             System.out.println("//--------------------//\n");
 
             opc = teclado.nextInt();
@@ -35,6 +36,8 @@ public class TelaConsulta {
                 case 5:
                     break;
                 case 6:
+                    break;
+                case 9:
                     clearTerminal();
                     return;
                 default:

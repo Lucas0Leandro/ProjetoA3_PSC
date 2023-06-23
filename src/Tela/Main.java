@@ -1,6 +1,11 @@
 package Tela;
 
 import java.util.Scanner;
+
+import Tela.Cadastros.TelaCadastros;
+import Tela.Consultas.TelaConsulta;
+import Tela.Delete.TelaDelete;
+
 import java.lang.Thread;
 
 public class Main {
@@ -24,18 +29,18 @@ public class Main {
             switch (opc) {                                                  //Switch com cases que dizem o que casa opção vai fazer
                 case 1:                                                     
                     clearTerminal();                                        //Da clear no sistema            
-                    TelaCadastros cadastros = new TelaCadastros();          //Cria o objeto que chama a classe TelaCadastros     
-                    cadastros.exibir();                                     //Chama a classe TelaCadastros com o método exibir        
+                    TelaCadastros telacadastros = new TelaCadastros();          //Cria o objeto que chama a classe TelaCadastros     
+                    telacadastros.exibir();                                     //Chama a classe TelaCadastros com o método exibir        
                     break;
                 case 2:
                     clearTerminal();
-                    TelaConsulta consultas = new TelaConsulta();            //Cria o objeto que chama a classe TelaConsulta  
-                    consultas.exibir();                                     //Chama a classe TelaConsulta com o método exibir
+                    TelaConsulta telaconsultas = new TelaConsulta();            //Cria o objeto que chama a classe TelaConsulta  
+                    telaconsultas.exibir();                                     //Chama a classe TelaConsulta com o método exibir
                     break;
                 case 3:
                     clearTerminal();
-                    TelaDelete deletar = new TelaDelete();                  //Cria o objeto que chama a classe TelaDelete  
-                    deletar.exibir();                                       //Chama a classe TelaDelete com o método exibir
+                    TelaDelete teladelete = new TelaDelete();                  //Cria o objeto que chama a classe TelaDelete  
+                    teladelete.exibir();                                       //Chama a classe TelaDelete com o método exibir
                     break;
                 case 0:                                                     //Encerra o laço, consequentemente o programa
                     clearTerminal();
