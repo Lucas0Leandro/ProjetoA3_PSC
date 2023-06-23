@@ -1,4 +1,4 @@
-package Tela;
+package Tela.Cadastros;
 
 import java.util.Scanner;
 
@@ -16,22 +16,39 @@ public class TelaCadastros {
             System.out.println("2 - Professor");
             System.out.println("3 - Cursos");
             System.out.println("4 - Turmas");
-            System.out.println("5 - Voltar");
+            System.out.println("5 - Salas");
+            System.out.println("9 - Voltar");
             System.out.println("//--------------------//\n");
 
             opc = teclado.nextInt();
 
             switch (opc){
                 case 1:
-                    System.out.println("TESTE");
+                    clearTerminal();
+                    TelaAlunos telaAlunos = new TelaAlunos();
+                    telaAlunos.exibir();
                     break;
                 case 2:
+                    clearTerminal();
+                    TelaProfessor telaprofessor = new TelaProfessor();
+                    telaprofessor.exibir();
                     break;
                 case 3:
+                    clearTerminal();
+                    TelaCursos telacursos = new TelaCursos();
+                    telacursos.exibir();
                     break;
                 case 4:
+                    clearTerminal();
+                    TelaTurmas telaturmas = new TelaTurmas();
+                    telaturmas.exibir();
                     break;
                 case 5:
+                    clearTerminal();
+                    TelaSalas telasalas = new TelaSalas();
+                    telasalas.exibir();
+                    break;
+                case 9:
                     clearTerminal();
                     return;
                 default:
