@@ -14,4 +14,12 @@ public class Aluno extends Pessoa {
         this.endereço = "Rua Professora Inge Moy 135 | Casa | Aventureiro";
         this.cep = 89225855;
     }
+
+    public int getRa() {
+        return ra;
+    }
+    public void setRa(int ra) {
+        this.ra = ra;
+    }
+
 }
