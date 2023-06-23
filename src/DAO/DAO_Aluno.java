@@ -3,7 +3,7 @@ package DAO;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import Conexão.conexão;
+import Conexao.conexao;
 import PessoaPack.Aluno;
 
 public class DAO_Aluno {
@@ -15,7 +15,7 @@ public class DAO_Aluno {
         PreparedStatement ps = null;
         
         try {
-            ps = conexão.getConexao().prepareStatement(sql);
+            ps = conexao.getConexao().prepareStatement(sql);
             ps.setLong(1, aluno.getRa());
             ps.setString(2, aluno.getNome());
             ps.setString(3, aluno.getfone());

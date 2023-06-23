@@ -1,10 +1,10 @@
-package Conexão;
+package Conexao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class conexão {
+public class conexao {
     
     private static final String url = "jdbc:mysql://localhost:3306/escola";
     private static final String user = "root";
