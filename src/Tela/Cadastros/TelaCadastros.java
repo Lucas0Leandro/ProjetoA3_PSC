@@ -35,18 +35,18 @@ public class TelaCadastros {
                     break;
                 case 3:
                     clearTerminal();
-                    TelaAlunos telaAlunos = new TelaAlunos();
-                    telaAlunos.exibir();
+                    TelaCursos telacursos = new TelaCursos();
+                    telacursos.exibir();
                     break;
                 case 4:
                     clearTerminal();
-                    TelaAlunos telaAlunos = new TelaAlunos();
-                    telaAlunos.exibir();
+                    TelaTurmas telaturmas = new TelaTurmas();
+                    telaturmas.exibir();
                     break;
                 case 5:
                     clearTerminal();
-                    TelaAlunos telaAlunos = new TelaAlunos();
-                    telaAlunos.exibir();
+                    TelaSalas telasalas = new TelaSalas();
+                    telasalas.exibir();
                     break;
                 case 9:
                     clearTerminal();

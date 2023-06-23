@@ -1,8 +1,8 @@
 package Tela.Cadastros;
 
-import EduPack.Cursos;
+import EduPack.Salas;
 
-public class TelaCursos {
+public class TelaSalas {
 
     public void exibir() {
     }
