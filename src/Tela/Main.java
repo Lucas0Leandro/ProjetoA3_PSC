@@ -50,7 +50,7 @@ public class Main {
                     break;
                 default:                                                    //Se nenhum dos casos acontecer, mostra a mensagem de inválido
                     clearTerminal();
-                    System.out.println("\nEsta opcao eh invalida, tente novamente!\n\n");
+                    System.out.println("\nEsta opcao e invalida, tente novamente!\n\n");
                     Thread.sleep(3000);                                     //Aguarda 3 segundos
                     clearTerminal();                                        //Da clear no sistema e volta a rodar o laço
                     break;              

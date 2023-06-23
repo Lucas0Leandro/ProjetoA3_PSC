@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class TelaCadastros {
 
     public void exibir() throws InterruptedException {
-        int opc = menu();
+        int opc;
         Scanner teclado = new Scanner(System.in);
 
         do{
@@ -25,8 +25,8 @@ public class TelaCadastros {
             switch (opc){
                 case 1:
                     clearTerminal();
-                    TelaAlunos telaAlunos = new TelaAlunos();
-                    telaAlunos.exibir();
+                    TelaAlunos telaalunos = new TelaAlunos();
+                    telaalunos.exibir();
                     break;
                 case 2:
                     clearTerminal();
@@ -53,7 +53,7 @@ public class TelaCadastros {
                     return;
                 default:
                     clearTerminal();
-                    System.out.println("\nEsta opcao eh invalida, tente novamente!\n\n");
+                    System.out.println("\nEsta opcao e invalida, tente novamente!\n\n");
                     Thread.sleep(3000);
                     clearTerminal();
                     break;
@@ -67,7 +67,4 @@ public class TelaCadastros {
         System.out.flush();
     }
 
-    public int menu() {
-        return 0;
-    }
 }
