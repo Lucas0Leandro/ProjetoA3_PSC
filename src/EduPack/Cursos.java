@@ -7,7 +7,10 @@ public class Cursos {
     private int cargaHoraria;
     private String DescriçãoSobre;
 
-    
+    public Cursos(){
+        
+    }
+
     public int getId() {
         return id;
     }

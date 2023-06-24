@@ -14,25 +14,27 @@ public class TelaCursos {
 
         System.out.println("//--------------------//");
         System.out.println("  CADASTRAR CURSOS");
-        System.out.print("Nome: ");
-        nome = teclado.nextLine();
+        System.out.print("ID: ");
+        id = teclado.nextInt();
+        teclado.nextLine();
         System.out.print("\nCarga Horaria: ");
         carga = teclado.nextInt();
+        teclado.nextLine();
+        System.out.print("\nNome: ");
+        nome = teclado.nextLine();
         System.out.print("\nDescricao: ");
         desc = teclado.nextLine();
-        System.out.print("\nID: ");
-        id = teclado.nextInt();
         System.out.println("       CONCLUIDO");
         System.out.println("//--------------------//\n");
 
-        Cursos Cursos = new Cursos();
-        Cursos.setId(id);
-        Cursos.setNome(nome);
-        Cursos.setDescriçãoSobre(desc);
-        Cursos.setCargaHoraria(carga);
+        Cursos cursos = new Cursos();
+        cursos.setId(id);
+        cursos.setCargaHoraria(carga);
+        cursos.setNome(nome);
+        cursos.setDescriçãoSobre(desc);
         
         DAO_Cursos daoCursos = new DAO_Cursos();
-        daoCursos.cadastrarCursos(Cursos);
+        daoCursos.cadastrarCursos(cursos);
 
         clearTerminal();
     }
