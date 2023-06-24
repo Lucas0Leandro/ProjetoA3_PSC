@@ -10,7 +10,7 @@ public class DAO_Professor {
 
     public void cadastrarProfessor(Professor professor){
 
-        String sql = "INSERT INTO PROFESSOR (ID, NOME, SOBRENO, CPF, FONE, ENDEREÇO, CEP) VALUES(?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO PROFESSOR (ID, NOME, SOBRENOME, CPF, FONE, ENDEREÇO, CEP) VALUES(?, ?, ?, ?, ?, ?, ?)";
 
         PreparedStatement ps = null;
         
