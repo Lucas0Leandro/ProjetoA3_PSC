@@ -19,8 +19,8 @@ public class DAO_Turmas {
                 ps.setLong(1, turmas.getID());
                 ps.setLong(2, turmas.getSemestre());
                 ps.setLong(3, turmas.getAno());
-                ps.setLong(4, turmas.getTipo());
-                ps.setTime(5, turmas.getHorario());
+                ps.setString(4, turmas.getTipo());
+                ps.setString(5, turmas.getHorario());
 
 
                 ps.execute();

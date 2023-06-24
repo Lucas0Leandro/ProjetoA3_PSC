@@ -7,8 +7,8 @@ public class Turmas {
     private int id;
     private int semestre;
     private int ano;
-    private char tipo;
-    private Time horario;
+    private String tipo;
+    private String horario;
 
     //Usando o get para podemos utilizar em outros package de forma publica
 
@@ -25,11 +25,31 @@ public class Turmas {
     public int getAno(){
         return ano;
     }
-    public char getTipo(){
+    public String getTipo(){
         return tipo;
     }
-    public Time getHorario(){
+    public String getHorario(){
         return horario;
+    }
+
+    public void setID(int id) {
+        this.id = id;
+    }
+
+    public void setSemestre(int semestre) {
+        this.semestre = semestre;
+    }
+
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public void setHorario(String horario) {
+        this.horario = horario;
     }
 }
 
