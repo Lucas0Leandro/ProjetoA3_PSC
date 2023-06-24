@@ -16,7 +16,7 @@ public class DAO_Professor {
         
             try {
                 ps = conexao.getConexao().prepareStatement(sql);
-                ps.setLong(1, professor.getIdFuncionario());
+                ps.setLong(1, professor.getId());
                 ps.setString(2, professor.getNome());
                 ps.setString(3, professor.getSobrenome());
                 ps.setString(4, professor.getfone());

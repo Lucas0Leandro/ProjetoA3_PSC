@@ -42,6 +42,8 @@ public class TelaAlunos {
 
         DAO_Aluno daoAluno = new DAO_Aluno();
         daoAluno.cadastrarAluno(aluno);
+
+        clearTerminal();
     }
 
     public static void clearTerminal() {
