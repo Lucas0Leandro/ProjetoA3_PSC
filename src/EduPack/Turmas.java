@@ -12,10 +12,6 @@ public class Turmas {
 
     //Usando o get para podemos utilizar em outros package de forma publica
 
-    public Turmas(){
-        
-    }
-
     public int getID(){
         return id;
     }
