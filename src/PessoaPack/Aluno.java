@@ -11,6 +11,7 @@ public class Aluno extends Pessoa {
     public int getRa() {
         return ra;
     }
+    
     public void setRa(int ra) {
         this.ra = ra;
     }

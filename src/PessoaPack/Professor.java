@@ -2,14 +2,18 @@ package PessoaPack;
 
 public class Professor extends Pessoa {
     
-    private int idFuncionario;
+    private int id;
 
-    public int getIdFuncionario() {
-        return idFuncionario;
+    public Professor(){ 
+        
     }
 
-    public void setIdFuncionario(int idFuncionario) {
-        this.idFuncionario = idFuncionario;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
 }
