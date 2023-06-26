@@ -1,14 +1,12 @@
 package EduPack;
 
-import java.sql.Time;
 
 public class Turmas {
 
     private int id;
     private int semestre;
     private int ano;
-    private char tipo;
-    private String horario;
+    private String hora, tipo;
 
     //Usando o get para podemos utilizar em outros package de forma publica
 
@@ -25,11 +23,11 @@ public class Turmas {
     public int getAno(){
         return ano;
     }
-    public char getTipo(){
+    public String getTipo(){
         return tipo;
     }
-    public Time getHorario(){
-        return horario;
+    public String getHora(){
+        return hora;
     }
 
     public void setID(int id) {
@@ -44,12 +42,12 @@ public class Turmas {
         this.ano = ano;
     }
 
-    public void setTipo(char tipo) {
+    public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 
-    public void setHorario(String horario) {
-        this.horario = horario;
+    public void setHora(String hora) {
+        this.hora = hora;
     }
 }
 

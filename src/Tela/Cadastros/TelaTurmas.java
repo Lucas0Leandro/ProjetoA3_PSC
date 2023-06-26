@@ -1,6 +1,5 @@
 package Tela.Cadastros;
 
-import java.sql.Time;
 import java.util.Scanner;
 import DAO.DAO_Turmas;
 import EduPack.Turmas;
@@ -8,9 +7,8 @@ import EduPack.Turmas;
 public class TelaTurmas {
     
     public void exibir() throws InterruptedException {
-        String tipo;
+        String tipo, hora;
         int id, semestre, ano;
-        String hora;
 
         Scanner teclado = new Scanner(System.in);
 
@@ -28,7 +26,7 @@ public class TelaTurmas {
         System.out.print("\nTipo: ");
         tipo = teclado.nextLine();
         System.out.print("\nHorario: ");
-        String hora = teclado.nextLine();
+        hora = teclado.nextLine();
         System.out.println("       CONCLUIDO");
         System.out.println("//--------------------//\n");
 
@@ -37,7 +35,7 @@ public class TelaTurmas {
         turmas.setSemestre(semestre);
         turmas.setAno(ano);
         turmas.setTipo(tipo);
-        turmas.setHorario(hora);
+        turmas.setHora(hora);
         
         DAO_Turmas daoTurmas = new DAO_Turmas();
         daoTurmas.cadastrarTurmas(turmas);
