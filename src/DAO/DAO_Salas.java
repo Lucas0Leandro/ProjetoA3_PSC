@@ -4,13 +4,13 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import Conexao.conexao;
-import EduPack.Salas;;
+import EduPack.Salas;
 
 public class DAO_Salas {
 
-    public void cadastrarSala(Salas salas){
+    public void cadastrarSalas(Salas salas){
 
-        String sql = "INSERT INTO SALAS (ID, LOCAL, CAPACIDADE) VALUES(?, ?, ?)";
+        String sql = "INSERT INTO SALAS (ID, LOCAL, CAPACIDADETOTAL) VALUES(?, ?, ?)";
 
         PreparedStatement ps = null;
         

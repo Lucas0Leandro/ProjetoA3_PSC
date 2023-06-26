@@ -28,7 +28,7 @@ public class DAO_Aluno {
                 ps.close();
                 
             } catch (SQLException e) {
-                // TODO Auto-generated catch block
+                
                 e.printStackTrace();
         }
 

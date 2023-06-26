@@ -17,11 +17,11 @@ public class TelaSalas {
         System.out.print("ID: ");
         id = teclado.nextInt();
         teclado.nextLine(); 
+        System.out.print("\nLocal: ");
+        local = teclado.nextLine();
         System.out.print("\nCapacidade de Alunos: ");
         capacidade = teclado.nextInt();
         teclado.nextLine(); 
-        System.out.print("\nLocal: ");
-        local = teclado.nextLine();
         System.out.println("       CONCLUIDO");
         System.out.println("//--------------------//\n");
 
@@ -31,7 +31,7 @@ public class TelaSalas {
         salas.setCapacidade(capacidade);
         
         DAO_Salas daoSalas = new DAO_Salas();
-        daoSalas.cadastrarSala(salas);
+        daoSalas.cadastrarSalas(salas);
 
         clearTerminal();
     }
