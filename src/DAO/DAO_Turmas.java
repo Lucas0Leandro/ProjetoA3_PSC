@@ -10,7 +10,7 @@ public class DAO_Turmas {
 
     public void cadastrarTurmas(Turmas turmas){
 
-        String sql = "INSERT INTO TURMA (ID, SEMESTRE, ANO, TIPO, HORARIO) VALUES(?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO TURMA (ID, SEMESTRE, ANO, TIPO, HORA) VALUES(?, ?, ?, ?, ?)";
 
         PreparedStatement ps = null;
         
