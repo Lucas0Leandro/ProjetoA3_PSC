@@ -30,8 +30,9 @@ public class DAO_Aluno {
             } catch (SQLException e) {
                 
                 e.printStackTrace();
-        }
+            }
 
     }
+
     
 }

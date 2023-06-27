@@ -25,15 +25,29 @@ public class TelaDelete {
 
             switch (opc){
                 case 1:
-                    System.out.println("TESTE");
+                    clearTerminal();
+                    TelaAlunos telaalunos = new TelaAlunos();
+                    telaalunos.exibir();
                     break;
                 case 2:
+                    clearTerminal();
+                    TelaProfessor telaprofessor = new TelaProfessor();
+                    telaprofessor.exibir();
                     break;
                 case 3:
+                    clearTerminal();
+                    TelaCursos telacursos = new TelaCursos();
+                    telacursos.exibir();
                     break;
                 case 4:
+                    clearTerminal();
+                    TelaTurmas telaturmas = new TelaTurmas();
+                    telaturmas.exibir();
                     break;
                 case 5:
+                    clearTerminal();
+                    TelaSalas telasalas = new TelaSalas();
+                    telasalas.exibir();
                     break;
                 case 9:
                     clearTerminal();
