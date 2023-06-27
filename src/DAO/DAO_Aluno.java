@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -67,5 +68,23 @@ public class DAO_Aluno {
         }
         
         return listarAlunos;
+    }
+
+    public void remover(int RA) {
+        try {
+            Connection connection = ConexaoBD.getInstance().getConnection();
+
+            String sql = "DELETE FROM ALUNO WHERE RA = ?";
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+
+            statement.setInt(1, RA);
+
+            statement.execute();
+            statement.close();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
