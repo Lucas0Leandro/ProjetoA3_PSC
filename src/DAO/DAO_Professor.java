@@ -1,7 +1,11 @@
 package DAO;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import Conexao.ConexaoBD;
 import PessoaPack.Professor;
@@ -10,7 +14,7 @@ public class DAO_Professor {
 
     public void cadastrarProfessor(Professor professor){
 
-        String sql = "INSERT INTO PROFESSOR (ID, NOME, SOBRENOME, CPF, FONE, ENDEREÇO, CEP) VALUES(?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO PROFESSOR (ID, NOME, SOBRENOME, CPF, FONE, ENDERECO, CEP) VALUES(?, ?, ?, ?, ?, ?, ?)";
 
         PreparedStatement ps = null;
         
@@ -32,6 +36,37 @@ public class DAO_Professor {
                 e.printStackTrace();
         }
 
+    }
+    public List<Professor> listar() {
+        List<Professor> listaProfessor = new ArrayList<Professor>();
+        try {
+            Connection connection = ConexaoBD.getConexao(); // Obtém a conexão corretamente
+
+            String sql = "SELECT * FROM PROFESSOR";
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()) {
+                Professor professor = new Professor(0, sql, sql, sql, sql, sql, 0); // Certifique-se de atualizar os argumentos com os tipos corretos
+                professor.setId(rs.getInt("ID"));
+                professor.setNome(rs.getString("Nome"));
+                professor.setSobrenome(rs.getString("Sobrenome"));
+                professor.setCPF(rs.getString("CPF"));
+                professor.setFone(rs.getString("Fone"));
+                professor.setEndereço(rs.getString("Endereco"));
+                professor.setCep(rs.getInt("CEP"));
+
+                listaProfessor.add(professor);
+            }
+            connection.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return listaProfessor;
     }
     
 }
