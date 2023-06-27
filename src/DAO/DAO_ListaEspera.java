@@ -62,4 +62,22 @@ public class DAO_ListaEspera {
         
         return listaEsperas;
     }
+
+    public void remover(int ID) {
+        try {
+            Connection connection = ConexaoBD.getInstance().getConnection();
+
+            String sql = "DELETE FROM LISTAESPERA WHERE ID = ?";
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+
+            statement.setInt(1, ID);
+
+            statement.execute();
+            statement.close();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
