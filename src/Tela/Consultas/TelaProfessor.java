@@ -1,5 +1,6 @@
 package Tela.Consultas;
 
+import java.util.List;
 import java.util.Scanner;
 import DAO.DAO_Professor;
 import PessoaPack.Professor;
@@ -7,11 +8,13 @@ import PessoaPack.Professor;
 public class TelaProfessor {
     
     public void exibir() throws InterruptedException {
-        
+        int opc;
+        Scanner teclado = new Scanner(System.in);
+        DAO_Professor daoProfessor = new DAO_Professor();
 
         do {
             System.out.println("//--------------------//");
-            System.out.println("    LISTA DE ALUNOS");        
+            System.out.println("  LISTA DE PROFESSORES");        
 
             List<Professor> listaProfessor = daoProfessor.listar();
 
