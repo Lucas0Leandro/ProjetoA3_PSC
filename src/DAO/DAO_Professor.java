@@ -68,5 +68,23 @@ public class DAO_Professor {
         
         return listaProfessor;
     }
+
+    public void remover(int ID) {
+        try {
+            Connection connection = ConexaoBD.getInstance().getConnection();
+
+            String sql = "DELETE FROM PROFESSOR WHERE ID = ?";
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+
+            statement.setInt(1, ID);
+
+            statement.execute();
+            statement.close();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     
 }
