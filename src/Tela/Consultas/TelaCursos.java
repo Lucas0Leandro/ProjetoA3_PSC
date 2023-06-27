@@ -14,7 +14,7 @@ public class TelaCursos {
 
         do {
             System.out.println("//-------------------------//");
-            System.out.println("      LISTA DE CURSOS");        
+            System.out.println("       LISTA DE CURSOS");        
 
             List<Cursos> listaCurso = daoCursos.listar();
 
