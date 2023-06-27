@@ -15,7 +15,7 @@ public class TelaProfessor {
             System.out.println("//--------------------//");
             System.out.println("    LISTA DE ALUNOS");        
 
-            List<Professor> listaAlunos = daoProfessor.listar();
+            List<Professor> listaProfessor = daoProfessor.listar();
 
             for (Professor professor : listaProfessor) {
                 System.out.println("\nRA: " + professor.getId());
