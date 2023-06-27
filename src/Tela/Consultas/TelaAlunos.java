@@ -16,15 +16,15 @@ public class TelaAlunos {
             System.out.println("//--------------------//");
             System.out.println("    LISTA DE ALUNOS");        
 
-            List<Aluno> listaAlunos = daoAluno.listar();
+            List<Aluno> listaAluno = daoAluno.listar();
 
-            for (Aluno aluno : listaAlunos) {
+            for (Aluno aluno : listaAluno) {
                 System.out.println("\nRA: " + aluno.getRa());
                 System.out.println("Nome: " + aluno.getNome());
                 System.out.println("Sobrenome: " + aluno.getSobrenome());
                 System.out.println("CPF: " + aluno.getCPF());
                 System.out.println("Fone: " + aluno.getfone());
-                System.out.println("Endereço: " + aluno.getendereço());
+                System.out.println("Endereco: " + aluno.getendereço());
                 System.out.println("CEP: " + aluno.getcep());
                 System.out.println("--------------------------------------------------------------------");
             }
