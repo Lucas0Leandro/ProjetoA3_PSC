@@ -17,18 +17,18 @@ public class TelaSalas {
         System.out.print("ID: ");
         id = teclado.nextInt();
         teclado.nextLine(); 
-        System.out.print("\nLocal: ");
-        local = teclado.nextLine();
         System.out.print("\nCapacidade de Alunos: ");
         capacidade = teclado.nextInt();
-        teclado.nextLine(); 
+        teclado.nextLine();
+        System.out.print("\nLocal: ");
+        local = teclado.nextLine();
         System.out.println("       CONCLUIDO");
         System.out.println("//--------------------//\n");
 
-        Salas salas = new Salas();
+        Salas salas = new Salas(id, capacidade, local);
         salas.setID(id);
-        salas.setLocal(local);
         salas.setCapacidade(capacidade);
+        salas.setLocal(local);
         
         DAO_Salas daoSalas = new DAO_Salas();
         daoSalas.cadastrarSalas(salas);

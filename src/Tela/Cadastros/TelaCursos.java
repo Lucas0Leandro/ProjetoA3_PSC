@@ -27,11 +27,12 @@ public class TelaCursos {
         System.out.println("       CONCLUIDO");
         System.out.println("//--------------------//\n");
 
-        Cursos cursos = new Cursos();
+        Cursos cursos = new Cursos(id, nome, carga, desc);
         cursos.setId(id);
-        cursos.setCargaHoraria(carga);
         cursos.setNome(nome);
+        cursos.setCargaHoraria(carga);
         cursos.setDescriçãoSobre(desc);
+        
         
         DAO_Cursos daoCursos = new DAO_Cursos();
         daoCursos.cadastrarCursos(cursos);

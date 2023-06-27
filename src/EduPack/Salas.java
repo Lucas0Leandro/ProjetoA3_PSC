@@ -6,6 +6,13 @@ public class Salas {
     private String local;
 
 
+    public Salas(int id, int capacidade, String local) {
+        this.id = id;
+        this.capacidade = capacidade;
+        this.local = local;
+    }
+
+    
     public int getID() {
         return id;
     }

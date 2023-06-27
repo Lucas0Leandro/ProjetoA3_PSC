@@ -1,12 +1,11 @@
 package Tela.Consultas;
 
-import java.util.Scanner;
-import DAO.DAO_Aluno;
-import PessoaPack.Aluno;
 
 public class TelaAlunos {
     
     public void exibir() throws InterruptedException {
+        
+
         
 
         

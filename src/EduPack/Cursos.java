@@ -7,10 +7,15 @@ public class Cursos {
     private int cargaHoraria;
     private String DescriçãoSobre;
 
-    public Cursos(){
-        
+
+    public Cursos(int id, String nome, int cargaHoraria, String descriçãoSobre) {
+        this.id = id;
+        this.nome = nome;
+        this.cargaHoraria = cargaHoraria;
+        DescriçãoSobre = descriçãoSobre;
     }
 
+    
     public int getId() {
         return id;
     }

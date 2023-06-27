@@ -4,9 +4,12 @@ public class Professor extends Pessoa {
     
     private int id;
 
-    public Professor(){ 
-        
+
+    public Professor(int id, String nome, String sobrenome, String cPF, String fone, String endereço, int cep) {
+        super(nome, sobrenome, cPF, fone, endereço, cep);
+        this.id = id;
     }
+
 
     public int getId() {
         return id;

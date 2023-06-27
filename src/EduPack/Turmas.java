@@ -8,8 +8,17 @@ public class Turmas {
     private int ano;
     private String hora, tipo;
 
-    //Usando o get para podemos utilizar em outros package de forma publica
 
+    public Turmas(int id, int semestre, int ano, String hora, String tipo) {
+        this.id = id;
+        this.semestre = semestre;
+        this.ano = ano;
+        this.hora = hora;
+        this.tipo = tipo;
+    }
+    
+
+    //Usando o get para podemos utilizar em outros package de forma publica
     public int getID(){
         return id;
     }

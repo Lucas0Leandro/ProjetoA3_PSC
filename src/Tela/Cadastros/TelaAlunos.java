@@ -31,7 +31,7 @@ public class TelaAlunos {
         System.out.println("       CONCLUIDO");
         System.out.println("//--------------------//\n");
 
-        Aluno aluno = new Aluno();
+        Aluno aluno = new Aluno(ra, nome, sobrenome, CPF, fone, endereco, cep);
         aluno.setRa(ra);
         aluno.setNome(nome);
         aluno.setSobrenome(sobrenome);

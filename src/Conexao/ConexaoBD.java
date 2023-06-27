@@ -4,19 +4,15 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class conexao {
+public class ConexaoBD {
 
-    private static conexao instance = null;
-    private static String url = "jdbc:mysql://localhost:3306/escola";
-    private static String user = "root";
-    private static String password = "1234";
+    private static ConexaoBD instance = null;
+    private static final String url = "jdbc:mysql://localhost:3306/escola";
+    private static final String user = "root";
+    private static final String password = "1234";
     private static Connection conn;
-
-    private conexao {
-
-    }
     
-    public Connection getConexao(){
+    public static Connection getConexao(){
 
         try {
             if(conn == null){
@@ -27,9 +23,19 @@ public class conexao {
             }
             
         }   catch (SQLException e) {
-            // TODO: handle exception
                 e.printStackTrace();
                 return null;
             }
+    }
+
+    public static ConexaoBD getInstance() {
+        if (instance == null) {
+            instance = new ConexaoBD();
+        }
+        return instance;
+    } 
+
+    public Connection getConnection() {
+        return conn;
     }
 }

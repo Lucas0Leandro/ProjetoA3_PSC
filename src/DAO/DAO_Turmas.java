@@ -3,7 +3,7 @@ package DAO;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import Conexao.conexao;
+import Conexao.ConexaoBD;
 import EduPack.Turmas;
 
 public class DAO_Turmas {
@@ -15,7 +15,7 @@ public class DAO_Turmas {
         PreparedStatement ps = null;
         
             try {
-                ps = conexao.getConexao().prepareStatement(sql);
+                ps = ConexaoBD.getConexao().prepareStatement(sql);
                 ps.setLong(1, turmas.getID());
                 ps.setLong(2, turmas.getSemestre());
                 ps.setLong(3, turmas.getAno());
@@ -27,7 +27,6 @@ public class DAO_Turmas {
                 ps.close();
                 
             } catch (SQLException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
         }
 

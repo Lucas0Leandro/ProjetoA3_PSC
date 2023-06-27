@@ -30,7 +30,7 @@ public class TelaTurmas {
         System.out.println("       CONCLUIDO");
         System.out.println("//--------------------//\n");
 
-        Turmas turmas = new Turmas();
+        Turmas turmas = new Turmas(id, semestre, ano, tipo, hora);
         turmas.setID(id);
         turmas.setSemestre(semestre);
         turmas.setAno(ano);

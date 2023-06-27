@@ -8,9 +8,18 @@ public class Pessoa {
     protected String fone;
     protected String endereço;
     protected int cep;
-    
-    //Usando o get para podemos utilizar em outros package de forma publica 
 
+ 
+    public Pessoa(String nome, String sobrenome, String cPF, String fone, String endereço, int cep) {
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        CPF = cPF;
+        this.fone = fone;
+        this.endereço = endereço;
+        this.cep = cep;
+    }
+
+    //Usando o get para podemos utilizar em outros package de forma publica 
     public String getNome(){
         return nome;
     }

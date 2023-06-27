@@ -31,7 +31,7 @@ public class TelaProfessor {
         System.out.println("       CONCLUIDO");
         System.out.println("//--------------------//\n");
 
-        Professor Professor = new Professor();
+        Professor Professor = new Professor(id, nome, sobrenome, CPF, fone, endereco, cep);
         Professor.setId(id);
         Professor.setNome(nome);
         Professor.setSobrenome(sobrenome);

@@ -3,7 +3,7 @@ package DAO;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import Conexao.conexao;
+import Conexao.ConexaoBD;
 import EduPack.Cursos;
 
 
@@ -16,7 +16,7 @@ public class DAO_Cursos {
         PreparedStatement ps = null;
         
             try {
-                ps = conexao.getConexao().prepareStatement(sql);
+                ps = ConexaoBD.getConexao().prepareStatement(sql);
                 ps.setLong(1, cursos.getId());
                 ps.setString(2, cursos.getNome());
                 ps.setLong(3, cursos.getCargaHoraria());

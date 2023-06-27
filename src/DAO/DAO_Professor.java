@@ -3,7 +3,7 @@ package DAO;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import Conexao.conexao;
+import Conexao.ConexaoBD;
 import PessoaPack.Professor;
 
 public class DAO_Professor {
@@ -15,7 +15,7 @@ public class DAO_Professor {
         PreparedStatement ps = null;
         
             try {
-                ps = conexao.getConexao().prepareStatement(sql);
+                ps = ConexaoBD.getConexao().prepareStatement(sql);
                 ps.setLong(1, professor.getId());
                 ps.setString(2, professor.getNome());
                 ps.setString(3, professor.getSobrenome());

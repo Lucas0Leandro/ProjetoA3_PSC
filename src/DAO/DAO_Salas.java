@@ -3,7 +3,7 @@ package DAO;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import Conexao.conexao;
+import Conexao.ConexaoBD;
 import EduPack.Salas;
 
 public class DAO_Salas {
@@ -15,7 +15,7 @@ public class DAO_Salas {
         PreparedStatement ps = null;
         
             try {
-                ps = conexao.getConexao().prepareStatement(sql);
+                ps = ConexaoBD.getConexao().prepareStatement(sql);
                 ps.setLong(1, salas.getID());
                 ps.setString(2, salas.getLocal());
                 ps.setLong(3, salas.getCapacidade());

@@ -6,6 +6,14 @@ public class ListaEspera {
     private String alunos;
     private String turmas;
 
+
+    public ListaEspera(int iD, String alunos, String turmas, String matricula) {
+        ID = iD;
+        this.alunos = alunos;
+        this.turmas = turmas;
+        Matricula = matricula;
+    }
+
     
     public int getID() {
         return ID;
