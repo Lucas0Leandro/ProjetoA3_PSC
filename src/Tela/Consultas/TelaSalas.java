@@ -10,15 +10,15 @@ public class TelaSalas {
     public void exibir() {
         int opc;
         Scanner teclado = new Scanner(System.in);
-        DAO_Salas daoSalas = new DAO_Salas();
+        DAO_Salas daoSala = new DAO_Salas();
 
         do {
             System.out.println("//-------------------------//");
             System.out.println("       LISTA DE SALAS");        
 
-            List<Salas> listaSalas = daoSalas.listar();
+            List<Salas> listaSala = daoSala.listar();
 
-            for (Salas salas : listaSalas) {
+            for (Salas salas : listaSala) {
                 System.out.println("\nID: " + salas.getID());
                 System.out.println("Capacidade: " + salas.getCapacidade());
                 System.out.println("Local: " + salas.getLocal());
