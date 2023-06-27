@@ -34,7 +34,7 @@ public class DAO_Salas {
 
     }
     public List<Salas> listar() {
-        List<Salas> listaSalas = new ArrayList<Salas>();
+        List<Salas> listaSala = new ArrayList<Salas>();
         try {
             Connection connection = ConexaoBD.getConexao(); // Obtém a conexão corretamente
 
@@ -47,10 +47,10 @@ public class DAO_Salas {
             while (rs.next()) {
                 Salas salas = new Salas(0, 0, sql);// Certifique-se de atualizar os argumentos com os tipos corretos
                 salas.setID(rs.getInt("ID"));
-                salas.setCapacidade(rs.getInt("Capacidade"));
+                salas.setCapacidade(rs.getInt("CapacidadeTotal"));
                 salas.setLocal(rs.getString("Local"));
                 
-                listaSalas.add(salas);
+                listaSala.add(salas);
             }
             connection.close();
 
@@ -58,7 +58,7 @@ public class DAO_Salas {
             e.printStackTrace();
         }
         
-        return listaSalas;
+        return listaSala;
     }
     
 }
