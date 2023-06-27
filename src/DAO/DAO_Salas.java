@@ -1,7 +1,11 @@
 package DAO;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import Conexao.ConexaoBD;
 import EduPack.Salas;
@@ -28,6 +32,33 @@ public class DAO_Salas {
                 e.printStackTrace();
         }
 
+    }
+    public List<Salas> listar() {
+        List<Salas> listaSalas = new ArrayList<Salas>();
+        try {
+            Connection connection = ConexaoBD.getConexao(); // Obtém a conexão corretamente
+
+            String sql = "SELECT * FROM SALAS";
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()) {
+                Salas salas = new Salas(0, 0, sql);// Certifique-se de atualizar os argumentos com os tipos corretos
+                salas.setID(rs.getInt("ID"));
+                salas.setCapacidade(rs.getInt("Capacidade"));
+                salas.setLocal(rs.getString("Local"));
+                
+                listaSalas.add(salas);
+            }
+            connection.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return listaSalas;
     }
     
 }

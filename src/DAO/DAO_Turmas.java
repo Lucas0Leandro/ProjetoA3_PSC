@@ -36,7 +36,7 @@ public class DAO_Turmas {
 
     }
     public List<Turmas> listar() {
-        List<Turmas> listaCursos = new ArrayList<Turmas>();
+        List<Turmas> listaTurmas = new ArrayList<Turmas>();
         try {
             Connection connection = ConexaoBD.getConexao(); // Obtém a conexão corretamente
 
@@ -54,7 +54,7 @@ public class DAO_Turmas {
                 turmas.setHora(rs.getString("Hora"));
                 turmas.setTipo(rs.getString("Tipo"));
 
-                listaCursos.add(turmas);
+                listaTurmas.add(turmas);
             }
             connection.close();
 
@@ -62,7 +62,7 @@ public class DAO_Turmas {
             e.printStackTrace();
         }
         
-        return listaCursos;
+        return listaTurmas;
     }
 
 }
