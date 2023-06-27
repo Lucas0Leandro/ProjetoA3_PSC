@@ -72,16 +72,16 @@ public class DAO_Aluno {
 
     public void remover(int RA) {
         try {
-            Connection connection = ConexaoBD.getInstance().getConnection();
+            Connection conn = ConexaoBD.getInstance().getConnection();
 
             String sql = "DELETE FROM ALUNO WHERE RA = ?";
 
-            PreparedStatement statement = connection.prepareStatement(sql);
+            PreparedStatement ps = conn.prepareStatement(sql);
 
-            statement.setInt(1, RA);
+            ps.setInt(1, RA);
 
-            statement.execute();
-            statement.close();
+            ps.execute();
+            ps.close();
             
         } catch (Exception e) {
             e.printStackTrace();

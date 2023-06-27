@@ -1,20 +1,23 @@
 package Tela.Delete;
 
+
 import java.util.Scanner;
 import DAO.DAO_Aluno;
-import PessoaPack.Aluno;
 
 public class TelaAlunos {
     
-    public void exibir() throws InterruptedException {
-        
+    public void exibir() {
+        int ra;
+        Scanner teclado = new Scanner(System.in);
 
-        
-    }
+        System.out.println("//--------------------//");
+        System.out.print("RA do Aluno: ");
+        ra = teclado.nextInt();
 
-    public static void clearTerminal() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
+        DAO_Aluno daoAluno = new DAO_Aluno();
+        daoAluno.remover(ra);
+
+
     }
 
 }

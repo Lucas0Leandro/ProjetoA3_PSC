@@ -1,20 +1,23 @@
 package Tela.Delete;
 
+
 import java.util.Scanner;
 import DAO.DAO_Salas;
-import EduPack.Salas;
 
 public class TelaSalas {
     
-    public void exibir() throws InterruptedException {
-        
+    public void exibir() {
+        int ra;
+        Scanner teclado = new Scanner(System.in);
 
-        
-    }
+        System.out.println("//--------------------//");
+        System.out.print("ID da Sala: ");
+        ra = teclado.nextInt();
 
-    public static void clearTerminal() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
+        DAO_Salas daoSalas = new DAO_Salas();
+        daoSalas.remover(ra);
+
+
     }
 
 }
