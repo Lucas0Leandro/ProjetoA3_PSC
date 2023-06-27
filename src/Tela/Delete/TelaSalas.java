@@ -17,6 +17,7 @@ public class TelaSalas {
         DAO_Salas daoSalas = new DAO_Salas();
         daoSalas.remover(ra);
 
+        System.out.println("Deletado com sucesso!");
 
     }
 

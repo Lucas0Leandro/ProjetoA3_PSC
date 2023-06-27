@@ -17,6 +17,7 @@ public class TelaTurmas {
         DAO_Turmas daoTurmas = new DAO_Turmas();
         daoTurmas.remover(ra);
 
+        System.out.println("Deletado com sucesso!");
 
     }
 

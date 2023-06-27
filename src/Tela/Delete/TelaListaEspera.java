@@ -17,6 +17,7 @@ public class TelaListaEspera {
         DAO_ListaEspera daoEspera = new DAO_ListaEspera();
         daoEspera.remover(ra);
 
+        System.out.println("Deletado com sucesso!");
 
     }
 

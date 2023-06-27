@@ -17,6 +17,7 @@ public class TelaCursos {
         DAO_Cursos daoCurso = new DAO_Cursos();
         daoCurso.remover(ra);
 
+        System.out.println("Deletado com sucesso!");
 
     }
 

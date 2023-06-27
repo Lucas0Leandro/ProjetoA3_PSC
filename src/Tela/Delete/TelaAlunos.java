@@ -12,11 +12,13 @@ public class TelaAlunos {
 
         System.out.println("//--------------------//");
         System.out.print("RA do Aluno: ");
-        ra = teclado.nextInt();
+        
+            ra = teclado.nextInt();
+        
+            DAO_Aluno daoAluno = new DAO_Aluno();
+            daoAluno.remover(ra);
 
-        DAO_Aluno daoAluno = new DAO_Aluno();
-        daoAluno.remover(ra);
-
+            System.out.println("Deletado com sucesso!");
 
     }
 

@@ -17,7 +17,9 @@ public class TelaProfessor {
         DAO_Professor daoProfessor = new DAO_Professor();
         daoProfessor.remover(ra);
 
+        System.out.println("Deletado com sucesso!");
 
+        
     }
 
 }
