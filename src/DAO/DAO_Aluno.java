@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +14,7 @@ public class DAO_Aluno {
 
     public void cadastrarAluno(Aluno aluno){
 
-        String sql = "INSERT INTO ALUNO (RA, NOME, SOBRENOME, FONE, ENDEREÇO, CPF, CEP) VALUES(?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO ALUNO (RA, NOME, SOBRENOME, FONE, ENDERECO, CPF, CEP) VALUES(?, ?, ?, ?, ?, ?, ?)";
 
         PreparedStatement ps = null;
         
@@ -41,7 +40,7 @@ public class DAO_Aluno {
     public List<Aluno> listar() {
         List<Aluno> listarAlunos = new ArrayList<Aluno>();
         try {
-            Connection connection = ConexaoBD.getInstance().getConnection();
+            Connection connection = ConexaoBD.getConexao(); // Obtém a conexão corretamente
 
             String sql = "SELECT * FROM ALUNO";
 
@@ -49,14 +48,14 @@ public class DAO_Aluno {
 
             ResultSet rs = statement.executeQuery();
 
-            while(rs.next()) {
-                Aluno aluno = new Aluno(0, sql, sql, sql, sql, sql, 0);
+            while (rs.next()) {
+                Aluno aluno = new Aluno(0, sql, sql, sql, sql, sql, 0); // Certifique-se de atualizar os argumentos com os tipos corretos
                 aluno.setRa(rs.getInt("RA"));
                 aluno.setNome(rs.getString("Nome"));
                 aluno.setSobrenome(rs.getString("Sobrenome"));
                 aluno.setCPF(rs.getString("CPF"));
                 aluno.setFone(rs.getString("Fone"));
-                aluno.setEndereço(rs.getString("Endereço"));
+                aluno.setEndereço(rs.getString("Endereco"));
                 aluno.setCep(rs.getInt("CEP"));
 
                 listarAlunos.add(aluno);
@@ -69,5 +68,4 @@ public class DAO_Aluno {
         
         return listarAlunos;
     }
-    
 }
