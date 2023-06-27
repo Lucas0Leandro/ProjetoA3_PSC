@@ -15,7 +15,7 @@ public class DAO_Cursos {
 
     public void cadastrarCursos(Cursos cursos){
 
-        String sql = "INSERT INTO CURSOS (ID, NOME, CARGAHORARIA, DESCRIÇÃOSOBRE) VALUES(?, ?, ?, ?)";
+        String sql = "INSERT INTO CURSOS (ID, NOME, CARGAHORARIA, DESCRICAOSOBRE) VALUES(?, ?, ?, ?)";
 
         PreparedStatement ps = null;
         
@@ -51,7 +51,7 @@ public class DAO_Cursos {
                 cursos.setId(rs.getInt("ID"));
                 cursos.setNome(rs.getString("Nome"));
                 cursos.setCargaHoraria(rs.getInt("CargaHoraria"));
-                cursos.setDescriçãoSobre(rs.getString("descricao"));
+                cursos.setDescriçãoSobre(rs.getString("DescricaoSobre"));
 
 
                 listaCursos.add(cursos);

@@ -10,7 +10,7 @@ public class TelaConsulta {
 
         do{
             System.out.println("//--------------------//");
-            System.out.println("       CONSULTA");
+            System.out.println("        CONSULTA");
             System.out.println("Escolha uma das opcoes:");
             System.out.println("1 - Alunos");
             System.out.println("2 - Professor");

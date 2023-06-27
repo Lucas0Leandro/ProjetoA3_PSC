@@ -13,8 +13,8 @@ public class TelaAlunos {
         DAO_Aluno daoAluno = new DAO_Aluno();
 
         do {
-            System.out.println("//--------------------//");
-            System.out.println("    LISTA DE ALUNOS");        
+            System.out.println("//----------------------//");
+            System.out.println("     LISTA DE ALUNOS");        
 
             List<Aluno> listaAluno = daoAluno.listar();
 

@@ -3,6 +3,7 @@ package Tela.Consultas;
 import java.util.Scanner;
 import DAO.DAO_Salas;
 import EduPack.Salas;
+import java.util.List;
 
 public class TelaSalas {
     
