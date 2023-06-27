@@ -1,7 +1,12 @@
 package DAO;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import Conexao.ConexaoBD;
 import PessoaPack.Aluno;
@@ -31,8 +36,38 @@ public class DAO_Aluno {
                 
                 e.printStackTrace();
             }
-
     }
+    
+    public List<Aluno> listar() {
+        List<Aluno> listarAlunos = new ArrayList<Aluno>();
+        try {
+            Connection connection = ConexaoBD.getInstance().getConnection();
 
+            String sql = "SELECT * FROM ALUNO";
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+
+            ResultSet rs = statement.executeQuery();
+
+            while(rs.next()) {
+                Aluno aluno = new Aluno(0, sql, sql, sql, sql, sql, 0);
+                aluno.setRa(rs.getInt("RA"));
+                aluno.setNome(rs.getString("Nome"));
+                aluno.setSobrenome(rs.getString("Sobrenome"));
+                aluno.setCPF(rs.getString("CPF"));
+                aluno.setFone(rs.getString("Fone"));
+                aluno.setEndereço(rs.getString("Endereço"));
+                aluno.setCep(rs.getInt("CEP"));
+
+                listarAlunos.add(aluno);
+            }
+            connection.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return listarAlunos;
+    }
     
 }
