@@ -59,7 +59,6 @@ public class DAO_Aluno {
 
                 listarAlunos.add(aluno);
             }
-            connection.close();
 
         } catch (Exception e) {
             e.printStackTrace();

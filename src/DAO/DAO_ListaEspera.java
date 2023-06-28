@@ -53,7 +53,6 @@ public class DAO_ListaEspera {
 
                 listaEsperas.add(listaEspera);
             }
-            connection.close();
 
         } catch (Exception e) {
             e.printStackTrace();

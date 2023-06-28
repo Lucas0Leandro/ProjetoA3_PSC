@@ -51,7 +51,6 @@ public class DAO_Salas {
                 
                 listaSala.add(salas);
             }
-            connection.close();
 
         } catch (Exception e) {
             e.printStackTrace();

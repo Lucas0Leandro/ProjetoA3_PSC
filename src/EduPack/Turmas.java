@@ -3,19 +3,16 @@ package EduPack;
 
 public class Turmas {
 
-    private int id;
-    private int semestre;
-    private int ano;
-    private String hora, curso, alunos, professor, sala;
+    private int id, semestre, ano, curso, professor, sala;
+    private String hora;
 
 
-    public Turmas(int id, int semestre, int ano, String hora, String curso, String alunos, String professor, String sala) {
+    public Turmas(int id, int semestre, int ano, int curso, int professor, int sala, String hora) {
         this.id = id;
         this.semestre = semestre;
         this.ano = ano;
         this.hora = hora;
         this.curso = curso;
-        this.alunos = alunos;
         this.professor = professor;
         this.sala = sala;
     }
@@ -51,6 +48,36 @@ public class Turmas {
     }
 
 
+    public int getCurso() {
+        return curso;
+    }
+
+
+    public void setCurso(int curso) {
+        this.curso = curso;
+    }
+
+
+    public int getProfessor() {
+        return professor;
+    }
+
+
+    public void setProfessor(int professor) {
+        this.professor = professor;
+    }
+
+
+    public int getSala() {
+        return sala;
+    }
+
+
+    public void setSala(int sala) {
+        this.sala = sala;
+    }
+
+
     public String getHora() {
         return hora;
     }
@@ -60,48 +87,6 @@ public class Turmas {
         this.hora = hora;
     }
 
-
-    public String getCurso() {
-        return curso;
-    }
-
-
-    public void setCurso(String curso) {
-        this.curso = curso;
-    }
-
-
-    public String getAlunos() {
-        return alunos;
-    }
-
-
-    public void setAlunos(String alunos) {
-        this.alunos = alunos;
-    }
-
-
-    public String getProfessor() {
-        return professor;
-    }
-
-
-    public void setProfessor(String professor) {
-        this.professor = professor;
-    }
-
-
-    public String getSala() {
-        return sala;
-    }
-
-
-    public void setSala(String sala) {
-        this.sala = sala;
-    }
-
-
-    
     
 }
 

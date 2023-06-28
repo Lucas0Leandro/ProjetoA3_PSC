@@ -1,14 +1,29 @@
 package Tela.Cadastros;
 
+import java.util.List;
 import java.util.Scanner;
+import DAO.DAO_Cursos;
+import DAO.DAO_Professor;
+import DAO.DAO_Salas;
 import DAO.DAO_Turmas;
+import EduPack.Cursos;
+import EduPack.Salas;
 import EduPack.Turmas;
+import PessoaPack.Professor;
 
 public class TelaTurmas {
     
     public void exibir() throws InterruptedException {
-        String curso, hora, alunos, professor, sala;
-        int semestre, ano;
+        String hora;
+        int semestre, ano, curso, professor, sala;
+
+        DAO_Cursos daoCursos = new DAO_Cursos();
+        DAO_Professor daoProfessor = new DAO_Professor();
+        DAO_Salas daoSala = new DAO_Salas();
+        
+        List<Cursos> listaCurso = daoCursos.listar();
+        List<Professor> listaProfessor = daoProfessor.listar();
+        List<Salas> listaSala = daoSala.listar();
 
         Scanner teclado = new Scanner(System.in);
 
@@ -20,26 +35,67 @@ public class TelaTurmas {
         System.out.print("\nAno: ");
         ano = teclado.nextInt();
         teclado.nextLine(); 
-        System.out.print("\nCurso: ");
-        curso = teclado.nextLine();
+
+        clearTerminal();
+        
+        System.out.print("\nEscolha o curso pelo ID: \n");
+
+            for (Cursos cursoDTO : listaCurso) {
+                    System.out.println("\nID: " + cursoDTO.getId());
+                    System.out.println("Nome: " + cursoDTO.getNome());
+                    System.out.println("Carga Horario: " + cursoDTO.getCargaHoraria());
+                    System.out.println("Descricao: " + cursoDTO.getDescriçãoSobre());
+                    System.out.println("--------------------------------------------------------------------------------");
+            }
+
+            curso = teclado.nextInt();
+            teclado.nextLine(); 
+
+        clearTerminal();
+
+        System.out.print("\nEscolha o professor pelo ID: \n");
+
+            for (Professor profDTO : listaProfessor) {
+                System.out.println("\nID: " + profDTO.getId());
+                System.out.println("Nome: " + profDTO.getNome());
+                System.out.println("Sobrenome: " + profDTO.getSobrenome());
+                System.out.println("CPF: " + profDTO.getCPF());
+                System.out.println("Fone: " + profDTO.getfone());
+                System.out.println("Endereco: " + profDTO.getendereço());
+                System.out.println("CEP: " + profDTO.getcep());
+                System.out.println("--------------------------------------------------------------------");
+            }
+
+            professor = teclado.nextInt();
+            teclado.nextLine(); 
+
+        clearTerminal();
+
+        System.out.print("\nEscolha a sala pelo ID: ");
+            
+            for (Salas salas : listaSala) {
+                System.out.println("\nID: " + salas.getID());
+                System.out.println("Capacidade: " + salas.getCapacidade());
+                System.out.println("Local: " + salas.getLocal());
+                System.out.println("--------------------------------------------------------------------");
+            }
+            
+            sala = teclado.nextInt();
+            teclado.nextLine(); 
+
+        clearTerminal();    
+
         System.out.print("\nHorario: ");
         hora = teclado.nextLine();
-        System.out.print("\nAlunos: ");
-        alunos = teclado.nextLine();
-        System.out.print("\nProfessor: ");
-        professor = teclado.nextLine();
-        System.out.print("\nSala: ");
-        sala = teclado.nextLine();
         System.out.println("       CONCLUIDO");
         System.out.println("//--------------------//\n");
 
-        Turmas turmas = new Turmas(0, semestre, ano, curso, hora, alunos, professor, sala);
+        Turmas turmas = new Turmas(0, 0, 0, 0, 0, 0, hora);
         
         turmas.setSemestre(semestre);
         turmas.setAno(ano);
         turmas.setCurso(curso);
         turmas.setHora(hora);
-        turmas.setAlunos(alunos);
         turmas.setProfessor(professor);
         turmas.setSala(sala);
         

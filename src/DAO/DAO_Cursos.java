@@ -55,7 +55,6 @@ public class DAO_Cursos {
 
                 listaCursos.add(cursos);
             }
-            connection.close();
 
         } catch (Exception e) {
             e.printStackTrace();

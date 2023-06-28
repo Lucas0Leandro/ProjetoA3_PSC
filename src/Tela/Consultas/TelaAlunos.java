@@ -33,7 +33,7 @@ public class TelaAlunos {
             opc = teclado.nextInt();
 
         } while (opc != 0);
-        
+        clearTerminal();
     }
 
     public static void clearTerminal() {

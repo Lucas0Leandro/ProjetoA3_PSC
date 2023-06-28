@@ -11,8 +11,8 @@ import EduPack.Turmas;
 public class TelaTurmas {
     
     public void exibir() {
-        String curso, hora, alunos, professor, sala;
-        int semestre, ano, id;
+        String hora;
+        int semestre, ano, id, professor, sala, curso;
 
         Scanner teclado = new Scanner(System.in);
 
@@ -27,27 +27,26 @@ public class TelaTurmas {
         System.out.print("Ano: ");
         ano = teclado.nextInt();
         teclado.nextLine();
+        System.out.println("Curso: ");
+        curso = teclado.nextInt();
+        System.out.println("Professor: ");
+        professor = teclado.nextInt();
+        teclado.nextLine();
+        System.out.println("Sala: ");
+        sala = teclado.nextInt();
+        teclado.nextLine();
         System.out.println("Horario: ");
         hora = teclado.nextLine();
-        System.out.println("Curso: ");
-        curso = teclado.nextLine();
-        System.out.println("Professor: ");
-        professor = teclado.nextLine();
-        System.out.println("Sala: ");
-        sala = teclado.nextLine();
-        System.out.println("Alunos: ");
-        alunos = teclado.nextLine();
         
 
-        Turmas turmas = new Turmas(0, semestre, ano, curso, hora, alunos, professor, sala);
+        Turmas turmas = new Turmas(0, 0, 0, 0, 0, 0, hora);
         
         turmas.setSemestre(semestre);
         turmas.setAno(ano);
         turmas.setCurso(curso);
-        turmas.setHora(hora);
-        turmas.setAlunos(alunos);
         turmas.setProfessor(professor);
         turmas.setSala(sala);
+        turmas.setHora(hora);
 
         DAO_Turmas daoTurmas = new DAO_Turmas();
 

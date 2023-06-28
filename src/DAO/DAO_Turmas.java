@@ -14,7 +14,7 @@ public class DAO_Turmas {
 
     public void cadastrarTurmas(Turmas turmas){
 
-        String sql = "INSERT INTO TURMAS (SEMESTRE, ANO, TIPO, HORA, ALUNOS, PROFESSOR, SALA) VALUES(?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO TURMAS (SEMESTRE, ANO, CURSO, PROFESSOR, SALA, HORA) VALUES(?, ?, ?, ?, ?, ?)";
 
         PreparedStatement ps = null;
         
@@ -22,11 +22,10 @@ public class DAO_Turmas {
                 ps = ConexaoBD.getConexao().prepareStatement(sql);
                 ps.setLong(1, turmas.getSemestre());
                 ps.setLong(2, turmas.getAno());
-                ps.setString(3, turmas.getCurso());
-                ps.setString(4, turmas.getHora());
-                ps.setString(5, turmas.getAlunos());
-                ps.setString(6, turmas.getProfessor());
-                ps.setString(7, turmas.getSala());
+                ps.setLong(3, turmas.getCurso());
+                ps.setLong(4, turmas.getProfessor());
+                ps.setLong(5, turmas.getSala());
+                ps.setString(6, turmas.getHora());
 
 
                 ps.execute();
@@ -50,19 +49,17 @@ public class DAO_Turmas {
             ResultSet rs = statement.executeQuery();
 
             while (rs.next()) {
-                Turmas turmas = new Turmas(0, 0, 0, sql, sql, sql, sql, sql); // Certifique-se de atualizar os argumentos com os tipos corretos
+                Turmas turmas = new Turmas(0, 0, 0, 0, 0, 0, sql); // Certifique-se de atualizar os argumentos com os tipos corretos
                 turmas.setId(rs.getInt("ID"));
                 turmas.setSemestre(rs.getInt("Semestre"));
                 turmas.setAno(rs.getInt("Ano"));
+                turmas.setCurso(rs.getInt("Curso"));
+                turmas.setProfessor(rs.getInt("Professor"));
+                turmas.setSala(rs.getInt("Sala"));
                 turmas.setHora(rs.getString("Hora"));
-                turmas.setCurso(rs.getString("Curso"));
-                turmas.setProfessor(rs.getString("Professor"));
-                turmas.setSala(rs.getString("Sala"));
-                turmas.setAlunos(rs.getString("Alunos"));
 
                 listaTurmas.add(turmas);
             }
-            connection.close();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -75,18 +72,17 @@ public class DAO_Turmas {
         try {
             Connection conn = ConexaoBD.getConexao(); 
     
-            String sql = "UPDATE ALUNO SET SEMESTRE = ?, ANO = ?, HORA = ?, CURSO = ?, ALUNOS = ?, PROFESSOR = ?, SALA = ?, WHERE ID = ?";
+            String sql = "UPDATE ALUNO SET SEMESTRE = ?, ANO = ?, CURSO = ?, PROFESSOR = ?, SALA = ?, HORA = ? WHERE ID = ?";
     
             PreparedStatement ps = conn.prepareStatement(sql);
     
             ps.setInt(1, turmas.getSemestre());
             ps.setInt(2, turmas.getAno());
-            ps.setString(3, turmas.getHora());
-            ps.setString(4, turmas.getCurso());
-            ps.setString(5, turmas.getAlunos());
-            ps.setString(6, turmas.getProfessor());
-            ps.setString(7, turmas.getSala());
-            ps.setInt(8, turmas.getId());
+            ps.setInt(3, turmas.getCurso());
+            ps.setInt(4, turmas.getProfessor());
+            ps.setInt(5, turmas.getSala());
+            ps.setInt(6, turmas.getId());
+            ps.setString(7, turmas.getHora());
 
     
             ps.execute();

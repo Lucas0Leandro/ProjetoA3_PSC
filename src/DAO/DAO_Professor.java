@@ -59,7 +59,6 @@ public class DAO_Professor {
 
                 listaProfessor.add(professor);
             }
-            connection.close();
 
         } catch (Exception e) {
             e.printStackTrace();
