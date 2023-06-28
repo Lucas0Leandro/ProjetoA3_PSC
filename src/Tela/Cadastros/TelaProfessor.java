@@ -8,7 +8,7 @@ public class TelaProfessor {
     
     public void exibir() throws InterruptedException {
         String nome, sobrenome, CPF, fone, endereco;
-        int id, cep;
+        int cep;
 
         Scanner teclado = new Scanner(System.in);
 
@@ -26,13 +26,10 @@ public class TelaProfessor {
         endereco = teclado.nextLine();
         System.out.print("\nCEP: ");
         cep = teclado.nextInt();
-        System.out.print("\nID: ");
-        id = teclado.nextInt();
         System.out.println("       CONCLUIDO");
         System.out.println("//--------------------//\n");
 
-        Professor Professor = new Professor(id, nome, sobrenome, CPF, fone, endereco, cep);
-        Professor.setId(id);
+        Professor Professor = new Professor(0, nome, sobrenome, CPF, fone, endereco, cep);
         Professor.setNome(nome);
         Professor.setSobrenome(sobrenome);
         Professor.setCPF(CPF);

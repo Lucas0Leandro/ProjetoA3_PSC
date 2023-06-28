@@ -15,16 +15,15 @@ public class DAO_Cursos {
 
     public void cadastrarCursos(Cursos cursos){
 
-        String sql = "INSERT INTO CURSOS (ID, NOME, CARGAHORARIA, DESCRICAOSOBRE) VALUES(?, ?, ?, ?)";
+        String sql = "INSERT INTO CURSOS (NOME, CARGAHORARIA, DESCRICAOSOBRE) VALUES(?, ?, ?)";
 
         PreparedStatement ps = null;
         
             try {
                 ps = ConexaoBD.getConexao().prepareStatement(sql);
-                ps.setLong(1, cursos.getId());
-                ps.setString(2, cursos.getNome());
-                ps.setLong(3, cursos.getCargaHoraria());
-                ps.setString(4, cursos.getDescriçãoSobre());
+                ps.setString(1, cursos.getNome());
+                ps.setLong(2, cursos.getCargaHoraria());
+                ps.setString(3, cursos.getDescriçãoSobre());
 
                 ps.execute();
                 ps.close();

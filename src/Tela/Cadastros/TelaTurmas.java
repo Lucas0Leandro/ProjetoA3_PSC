@@ -8,21 +8,18 @@ public class TelaTurmas {
     
     public void exibir() throws InterruptedException {
         String tipo, hora;
-        int id, semestre, ano;
+        int semestre, ano;
 
         Scanner teclado = new Scanner(System.in);
 
         System.out.println("//--------------------//");
-        System.out.println("   CADASTRAR TURMAS");
-        System.out.print("ID: ");
-        id = teclado.nextInt();
-        teclado.nextLine(); // Consumir a nova linha pendente antes de ler a próxima string
-        System.out.print("\nSemestre: ");
+        System.out.println("   CADASTRAR TURMAS"); 
+        System.out.print("Semestre: ");
         semestre = teclado.nextInt();
-        teclado.nextLine(); // Consumir a nova linha pendente antes de ler a próxima string
+        teclado.nextLine(); 
         System.out.print("\nAno: ");
         ano = teclado.nextInt();
-        teclado.nextLine(); // Consumir a nova linha pendente antes de ler a próxima string
+        teclado.nextLine(); 
         System.out.print("\nTipo: ");
         tipo = teclado.nextLine();
         System.out.print("\nHorario: ");
@@ -30,8 +27,7 @@ public class TelaTurmas {
         System.out.println("       CONCLUIDO");
         System.out.println("//--------------------//\n");
 
-        Turmas turmas = new Turmas(id, semestre, ano, tipo, hora);
-        turmas.setID(id);
+        Turmas turmas = new Turmas(0, semestre, ano, tipo, hora);
         turmas.setSemestre(semestre);
         turmas.setAno(ano);
         turmas.setTipo(tipo);

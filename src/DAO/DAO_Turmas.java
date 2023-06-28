@@ -14,17 +14,16 @@ public class DAO_Turmas {
 
     public void cadastrarTurmas(Turmas turmas){
 
-        String sql = "INSERT INTO TURMAS (ID, SEMESTRE, ANO, TIPO, HORA) VALUES(?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO TURMAS (SEMESTRE, ANO, TIPO, HORA) VALUES(?, ?, ?, ?)";
 
         PreparedStatement ps = null;
         
             try {
                 ps = ConexaoBD.getConexao().prepareStatement(sql);
-                ps.setLong(1, turmas.getID());
-                ps.setLong(2, turmas.getSemestre());
-                ps.setLong(3, turmas.getAno());
-                ps.setString(4, turmas.getTipo());
-                ps.setString(5, turmas.getHora());
+                ps.setLong(1, turmas.getSemestre());
+                ps.setLong(2, turmas.getAno());
+                ps.setString(3, turmas.getTipo());
+                ps.setString(4, turmas.getHora());
 
 
                 ps.execute();

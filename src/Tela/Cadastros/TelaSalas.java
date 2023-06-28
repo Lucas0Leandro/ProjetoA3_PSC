@@ -8,16 +8,13 @@ public class TelaSalas {
     
     public void exibir() throws InterruptedException {
         String local;
-        int id, capacidade;
+        int capacidade;
 
         Scanner teclado = new Scanner(System.in);
 
         System.out.println("//--------------------//");
         System.out.println("   CADASTRAR SALAS");
-        System.out.print("ID: ");
-        id = teclado.nextInt();
-        teclado.nextLine(); 
-        System.out.print("\nCapacidade de Alunos: ");
+        System.out.print("Capacidade de Alunos: ");
         capacidade = teclado.nextInt();
         teclado.nextLine();
         System.out.print("\nLocal: ");
@@ -25,8 +22,7 @@ public class TelaSalas {
         System.out.println("       CONCLUIDO");
         System.out.println("//--------------------//\n");
 
-        Salas salas = new Salas(id, capacidade, local);
-        salas.setID(id);
+        Salas salas = new Salas(0, capacidade, local);
         salas.setCapacidade(capacidade);
         salas.setLocal(local);
         

@@ -1,20 +1,24 @@
-package Tela.Cadastros;
+package Tela.Consultas;
 
+import java.util.List;
 import java.util.Scanner;
-import DAO.DAO_Aluno;
-import PessoaPack.Aluno;
+import DAO.DAO_Professor;
+import PessoaPack.Professor;
 
-public class TelaAlunos {
+public class TelaProfessor {
     
-    public void exibir() throws InterruptedException {
+    public void exibir() {
         String nome, sobrenome, CPF, fone, endereco;
-        int /*ra, */cep;
+        int ra, cep;
 
         Scanner teclado = new Scanner(System.in);
 
         System.out.println("//--------------------//");
-        System.out.println("    CADASTRAR ALUNO");
-        System.out.print("Nome: ");
+        System.out.println("   ATUALIZAR DADOS");
+        System.out.print("RA do Aluno: ");
+        ra = teclado.nextInt();
+        teclado.nextLine();
+        System.out.print("\nNome: ");
         nome = teclado.nextLine();
         System.out.print("\nSobrenome: ");
         sobrenome = teclado.nextLine();
@@ -26,10 +30,12 @@ public class TelaAlunos {
         endereco = teclado.nextLine();
         System.out.print("\nCEP: ");
         cep = teclado.nextInt();
-        System.out.println("       CONCLUIDO");
-        System.out.println("//--------------------//\n");
+        
 
-        Aluno aluno = new Aluno(0, nome, sobrenome, CPF, fone, endereco, cep);
+        Aluno aluno = new Aluno(ra, nome, sobrenome, CPF, fone, endereco, cep);
+        DAO_Aluno daoAluno = new DAO_Aluno();
+
+        aluno.setRa(ra);
         aluno.setNome(nome);
         aluno.setSobrenome(sobrenome);
         aluno.setCPF(CPF);
@@ -37,15 +43,10 @@ public class TelaAlunos {
         aluno.setEndereço(endereco);
         aluno.setCep(cep);
 
-        DAO_Aluno daoAluno = new DAO_Aluno();
-        daoAluno.cadastrarAluno(aluno);
+        daoAluno.atualizar(aluno);
 
-        clearTerminal();
-    }
+        System.out.println("\nAtualizado com sucesso!");
 
-    public static void clearTerminal() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
     }
 
 }

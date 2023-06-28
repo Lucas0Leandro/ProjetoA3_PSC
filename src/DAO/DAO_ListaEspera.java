@@ -14,16 +14,15 @@ public class DAO_ListaEspera {
 
     public void cadastrarListaEspera(ListaEspera listaEspera){
 
-        String sql = "INSERT INTO LISTAESPERA (ID, ALUNOS, MATRICULA, TURMAS) VALUES(?, ?, ?, ?,)";
+        String sql = "INSERT INTO LISTAESPERA (ALUNOS, MATRICULA, TURMAS) VALUES(?, ?, ?)";
 
         PreparedStatement ps = null;
         
             try {
                 ps = ConexaoBD.getConexao().prepareStatement(sql);
-                ps.setLong(1, listaEspera.getID());
-                ps.setString(2, listaEspera.getAlunos());
-                ps.setString(3, listaEspera.getMatricula());
-                ps.setString(4, listaEspera.getTurmas());
+                ps.setString(1, listaEspera.getAlunos());
+                ps.setString(2, listaEspera.getMatricula());
+                ps.setString(3, listaEspera.getTurmas());
 
                 ps.execute();
                 ps.close();

@@ -7,7 +7,7 @@ import PessoaPack.Aluno;
 
 public class TelaAlunos {
     
-    public void exibir() {
+    public void exibir() throws InterruptedException {
         int opc;
         Scanner teclado = new Scanner(System.in);
         DAO_Aluno daoAluno = new DAO_Aluno();
@@ -32,8 +32,6 @@ public class TelaAlunos {
             System.out.println("\n\nDigite 0 para sair.");
             opc = teclado.nextInt();
 
-            clearTerminal();
-
         } while (opc != 0);
         
     }
@@ -42,4 +40,5 @@ public class TelaAlunos {
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
+
 }

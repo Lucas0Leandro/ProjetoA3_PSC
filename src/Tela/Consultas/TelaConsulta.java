@@ -26,28 +26,28 @@ public class TelaConsulta {
             switch (opc){
                 case 1:
                     clearTerminal();
-                    TelaAlunos telaalunos = new TelaAlunos();
-                    telaalunos.exibir();
+                    TelaAlunos telaAlunos = new TelaAlunos();
+                    telaAlunos.exibir();
                     break;
                 case 2:
                     clearTerminal();
-                    TelaProfessor telaprofessor = new TelaProfessor();
-                    telaprofessor.exibir();
+                    TelaProfessor telaProfessor = new TelaProfessor();
+                    telaProfessor.exibir();
                     break;
                 case 3:
                     clearTerminal();
-                    TelaCursos telacursos = new TelaCursos();
-                    telacursos.exibir();
+                    TelaCursos telaCursos = new TelaCursos();
+                    telaCursos.exibir();
                     break;
                 case 4:
                     clearTerminal();
-                    TelaTurmas telaturmas = new TelaTurmas();
-                    telaturmas.exibir();
+                    TelaTurmas telaTurmas = new TelaTurmas();
+                    telaTurmas.exibir();
                     break;
                 case 5:
                     clearTerminal();
-                    TelaSalas telasalas = new TelaSalas();
-                    telasalas.exibir();
+                    TelaSalas telaSalas = new TelaSalas();
+                    telaSalas.exibir();
                     break;
                 case 9:
                     clearTerminal();

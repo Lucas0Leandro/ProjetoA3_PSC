@@ -14,15 +14,14 @@ public class DAO_Salas {
 
     public void cadastrarSalas(Salas salas){
 
-        String sql = "INSERT INTO SALAS (ID, LOCAL, CAPACIDADETOTAL) VALUES(?, ?, ?)";
+        String sql = "INSERT INTO SALAS (LOCAL, CAPACIDADETOTAL) VALUES(?, ?)";
 
         PreparedStatement ps = null;
         
             try {
                 ps = ConexaoBD.getConexao().prepareStatement(sql);
-                ps.setLong(1, salas.getID());
-                ps.setString(2, salas.getLocal());
-                ps.setLong(3, salas.getCapacidade());
+                ps.setString(1, salas.getLocal());
+                ps.setLong(2, salas.getCapacidade());
 
                 ps.execute();
                 ps.close();
