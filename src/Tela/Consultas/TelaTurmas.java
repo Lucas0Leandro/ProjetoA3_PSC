@@ -19,11 +19,14 @@ public class TelaTurmas {
             List<Turmas> listaTurma = daoTurmas.listar();
 
             for (Turmas curso : listaTurma) {
-                System.out.println("\nID: " + curso.getID());
+                System.out.println("\nID: " + curso.getId());
                 System.out.println("Semestre: " + curso.getSemestre());
                 System.out.println("Ano: " + curso.getAno());
                 System.out.println("Hora: " + curso.getHora());
-                System.out.println("Tipo: " + curso.getTipo());
+                System.out.println("Curso: " + curso.getCurso());
+                System.out.println("Professor: " + curso.getProfessor());
+                System.out.println("Sala: " + curso.getSala());
+                System.out.println("Alunos: " + curso.getAlunos());
                 System.out.println("--------------------------------------------------------------------");
             }
 
