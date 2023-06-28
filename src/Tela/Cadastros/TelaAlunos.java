@@ -8,7 +8,7 @@ public class TelaAlunos {
     
     public void exibir() throws InterruptedException {
         String nome, sobrenome, CPF, fone, endereco;
-        int /*ra, */cep;
+        int cep;
 
         Scanner teclado = new Scanner(System.in);
 
