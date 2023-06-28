@@ -22,9 +22,9 @@ public class DAO_Professor {
                 ps = ConexaoBD.getConexao().prepareStatement(sql);
                 ps.setString(1, professor.getNome());
                 ps.setString(2, professor.getSobrenome());
-                ps.setString(3, professor.getfone());
-                ps.setString(4, professor.getendereço());
-                ps.setString(5, professor.getCPF());
+                ps.setString(3, professor.getCPF());
+                ps.setString(4, professor.getfone());
+                ps.setString(5, professor.getendereço());
                 ps.setLong(6, professor.getcep());
 
                 ps.execute();
@@ -105,7 +105,7 @@ public class DAO_Professor {
             statement.execute();
             statement.close();
             
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }

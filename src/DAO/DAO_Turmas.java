@@ -115,4 +115,44 @@ public class DAO_Turmas {
         }
     }
 
+    public boolean verificarSala(int sala, String hora) {
+        try {
+            Connection conn = ConexaoBD.getConexao();
+
+            String sql = "SELECT * FROM TURMAS WHERE SALA = ? AND HORA = ?";
+
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, sala);
+            ps.setString(2, hora);
+
+            ResultSet rs = ps.executeQuery();
+
+            return !rs.next(); // Retorna true se não houver resultado, ou seja, a sala está disponível
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean verificarProf(int professor, String hora) {
+        try {
+            Connection conn = ConexaoBD.getConexao();
+
+            String sql = "SELECT * FROM TURMAS WHERE SALA = ? AND HORA = ?";
+
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, professor);
+            ps.setString(2, hora);
+
+            ResultSet rs = ps.executeQuery();
+
+            return !rs.next(); // Retorna true se não houver resultado, ou seja, a sala está disponível
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 }

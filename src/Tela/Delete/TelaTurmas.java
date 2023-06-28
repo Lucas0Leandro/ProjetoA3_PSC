@@ -17,8 +17,15 @@ public class TelaTurmas {
         DAO_Turmas daoTurmas = new DAO_Turmas();
         daoTurmas.remover(ra);
 
+        clearTerminal();
+
         System.out.println("Deletado com sucesso!");
 
+    }
+
+    public static void clearTerminal() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
 
 }
