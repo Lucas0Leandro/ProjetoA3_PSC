@@ -26,6 +26,7 @@ public class TelaAlunos {
                 System.out.println("Fone: " + aluno.getfone());
                 System.out.println("Endereco: " + aluno.getendereço());
                 System.out.println("CEP: " + aluno.getcep());
+                System.out.println("Curso: " + aluno.getCurso());
                 System.out.println("--------------------------------------------------------------------");
             }
 

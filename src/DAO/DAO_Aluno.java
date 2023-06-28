@@ -14,7 +14,7 @@ public class DAO_Aluno {
 
     public void cadastrarAluno(Aluno aluno){
 
-        String sql = "INSERT INTO ALUNO (NOME, SOBRENOME, FONE, ENDERECO, CPF, CEP) VALUES(?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO ALUNO (NOME, SOBRENOME, FONE, ENDERECO, CPF, CEP, CURSO) VALUES(?, ?, ?, ?, ?, ?, ?)";
 
         PreparedStatement ps = null;
         
@@ -26,6 +26,7 @@ public class DAO_Aluno {
                 ps.setString(4, aluno.getendereço());
                 ps.setString(5, aluno.getCPF());
                 ps.setLong(6, aluno.getcep());
+                ps.setLong(7, aluno.getCurso());
 
                 ps.execute();
                 ps.close();
@@ -48,7 +49,7 @@ public class DAO_Aluno {
             ResultSet rs = statement.executeQuery();
 
             while (rs.next()) {
-                Aluno aluno = new Aluno(0, sql, sql, sql, sql, sql, 0); // Certifique-se de atualizar os argumentos com os tipos corretos
+                Aluno aluno = new Aluno(0, sql, sql, sql, sql, sql, 0, 0); // Certifique-se de atualizar os argumentos com os tipos corretos
                 aluno.setRa(rs.getInt("RA"));
                 aluno.setNome(rs.getString("Nome"));
                 aluno.setSobrenome(rs.getString("Sobrenome"));
@@ -56,6 +57,7 @@ public class DAO_Aluno {
                 aluno.setFone(rs.getString("Fone"));
                 aluno.setEndereço(rs.getString("Endereco"));
                 aluno.setCep(rs.getInt("CEP"));
+                aluno.setCurso(rs.getInt("Curso"));
 
                 listarAlunos.add(aluno);
             }
@@ -71,7 +73,7 @@ public class DAO_Aluno {
         try {
             Connection conn = ConexaoBD.getConexao(); 
     
-            String sql = "UPDATE ALUNO SET NOME = ?, SOBRENOME = ?, FONE = ?, ENDERECO = ?, CPF = ?, CEP = ? WHERE RA = ?";
+            String sql = "UPDATE ALUNO SET NOME = ?, SOBRENOME = ?, FONE = ?, ENDERECO = ?, CPF = ?, CEP = ?, CURSO = ? WHERE RA = ?";
     
             PreparedStatement ps = conn.prepareStatement(sql);
     
@@ -81,7 +83,8 @@ public class DAO_Aluno {
             ps.setString(4, aluno.getendereço());
             ps.setString(5, aluno.getCPF());
             ps.setInt(6, aluno.getcep());
-            ps.setInt(7, aluno.getRa());
+            ps.setInt(7, aluno.getCurso());
+            ps.setInt(8, aluno.getRa());
     
             ps.execute();
             ps.close();

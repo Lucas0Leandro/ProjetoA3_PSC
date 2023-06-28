@@ -8,7 +8,7 @@ public class TelaAlunos {
     
     public void exibir() {
         String nome, sobrenome, CPF, fone, endereco;
-        int ra, cep;
+        int ra, cep, curso;
 
         Scanner teclado = new Scanner(System.in);
 
@@ -29,9 +29,14 @@ public class TelaAlunos {
         endereco = teclado.nextLine();
         System.out.print("\nCEP: ");
         cep = teclado.nextInt();
+        System.out.print("\nCurso: ");
+
+            //CURSOS
+
+        curso = teclado.nextInt();
         
 
-        Aluno aluno = new Aluno(ra, nome, sobrenome, CPF, fone, endereco, cep);
+        Aluno aluno = new Aluno(ra, nome, sobrenome, CPF, fone, endereco, cep, curso);
         DAO_Aluno daoAluno = new DAO_Aluno();
 
         aluno.setRa(ra);
@@ -41,6 +46,7 @@ public class TelaAlunos {
         aluno.setFone(fone);
         aluno.setEndereço(endereco);
         aluno.setCep(cep);
+        aluno.setCurso(curso);
 
         daoAluno.atualizar(aluno);
 
