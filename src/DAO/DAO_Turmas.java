@@ -72,7 +72,7 @@ public class DAO_Turmas {
         try {
             Connection conn = ConexaoBD.getConexao(); 
     
-            String sql = "UPDATE ALUNO SET SEMESTRE = ?, ANO = ?, CURSO = ?, PROFESSOR = ?, SALA = ?, HORA = ? WHERE ID = ?";
+            String sql = "UPDATE TURMAS SET SEMESTRE = ?, ANO = ?, CURSO = ?, PROFESSOR = ?, SALA = ?, HORA = ? WHERE ID = ?";
     
             PreparedStatement ps = conn.prepareStatement(sql);
     
@@ -96,18 +96,18 @@ public class DAO_Turmas {
 
     public void remover(int ID) {
         try {
-            Connection connection = ConexaoBD.getInstance().getConnection();
+            Connection conn = ConexaoBD.getConexao();
 
             String sql = "DELETE FROM TURMAS WHERE ID = ?";
 
-            PreparedStatement statement = connection.prepareStatement(sql);
+            PreparedStatement ps = conn.prepareStatement(sql);
 
-            statement.setInt(1, ID);
+            ps.setInt(1, ID);
 
-            statement.execute();
-            statement.close();
+            ps.execute();
+            ps.close();
             
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }

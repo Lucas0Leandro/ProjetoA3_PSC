@@ -71,7 +71,7 @@ public class DAO_Professor {
         try {
             Connection conn = ConexaoBD.getConexao(); 
     
-            String sql = "UPDATE ALUNO SET NOME = ?, SOBRENOME = ?, FONE = ?, ENDERECO = ?, CPF = ?, CEP = ? WHERE ID = ?";
+            String sql = "UPDATE PROFESSOR SET NOME = ?, SOBRENOME = ?, FONE = ?, ENDERECO = ?, CPF = ?, CEP = ? WHERE ID = ?";
     
             PreparedStatement ps = conn.prepareStatement(sql);
     
@@ -94,11 +94,11 @@ public class DAO_Professor {
 
     public void remover(int ID) {
         try {
-            Connection connection = ConexaoBD.getInstance().getConnection();
+            Connection conn = ConexaoBD.getConexao();
 
             String sql = "DELETE FROM PROFESSOR WHERE ID = ?";
 
-            PreparedStatement statement = connection.prepareStatement(sql);
+            PreparedStatement statement = conn.prepareStatement(sql);
 
             statement.setInt(1, ID);
 

@@ -63,11 +63,11 @@ public class DAO_ListaEspera {
 
     public void remover(int ID) {
         try {
-            Connection connection = ConexaoBD.getInstance().getConnection();
+            Connection conn = ConexaoBD.getConexao();
 
             String sql = "DELETE FROM LISTAESPERA WHERE ID = ?";
 
-            PreparedStatement statement = connection.prepareStatement(sql);
+            PreparedStatement statement = conn.prepareStatement(sql);
 
             statement.setInt(1, ID);
 

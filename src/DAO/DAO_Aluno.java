@@ -94,7 +94,7 @@ public class DAO_Aluno {
 
     public void remover(int RA) {
         try {
-            Connection conn = ConexaoBD.getInstance().getConnection();
+            Connection conn = ConexaoBD.getConexao();
 
             String sql = "DELETE FROM ALUNO WHERE RA = ?";
 
