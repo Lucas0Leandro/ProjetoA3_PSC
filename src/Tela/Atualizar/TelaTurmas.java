@@ -1,49 +1,48 @@
-package Tela.Consultas;
+package Tela.Atualizar;
 
 import java.util.List;
 import java.util.Scanner;
+
+import com.mysql.cj.conf.HostInfo;
+
 import DAO.DAO_Turmas;
 import EduPack.Turmas;
 
 public class TelaTurmas {
     
     public void exibir() {
-        String nome, sobrenome, CPF, fone, endereco;
-        int ra, cep;
+        String hora, tipo;
+        int id, semestre, ano;
 
         Scanner teclado = new Scanner(System.in);
 
         System.out.println("//--------------------//");
         System.out.println("   ATUALIZAR DADOS");
-        System.out.print("RA do Aluno: ");
-        ra = teclado.nextInt();
+        System.out.print("ID da Turma: ");
+        id = teclado.nextInt();
         teclado.nextLine();
-        System.out.print("\nNome: ");
-        nome = teclado.nextLine();
-        System.out.print("\nSobrenome: ");
-        sobrenome = teclado.nextLine();
-        System.out.print("\nCPF: ");
-        CPF = teclado.nextLine();
-        System.out.print("\nFone: ");
-        fone = teclado.nextLine();
-        System.out.print("\nEndereco: ");
-        endereco = teclado.nextLine();
-        System.out.print("\nCEP: ");
-        cep = teclado.nextInt();
+        System.out.print("Semestre: ");
+        semestre = teclado.nextInt();
+        teclado.nextLine();
+        System.out.print("Ano: ");
+        ano = teclado.nextInt();
+        teclado.nextLine();
+        System.out.println("Horario: ");
+        hora = teclado.nextLine();
+        System.out.println("Tipo: ");
+        tipo = teclado.nextLine();
         
 
-        Aluno aluno = new Aluno(ra, nome, sobrenome, CPF, fone, endereco, cep);
-        DAO_Aluno daoAluno = new DAO_Aluno();
+        Turmas turmas = new Turmas(id, semestre, ano, hora, tipo);
+        DAO_Turmas daoTurmas = new DAO_Turmas();
 
-        aluno.setRa(ra);
-        aluno.setNome(nome);
-        aluno.setSobrenome(sobrenome);
-        aluno.setCPF(CPF);
-        aluno.setFone(fone);
-        aluno.setEndereço(endereco);
-        aluno.setCep(cep);
+        turmas.setID(id);
+        turmas.setSemestre(semestre);
+        turmas.setAno(ano);
+        turmas.setHora(hora);
+        turmas.setTipo(tipo);
 
-        daoAluno.atualizar(aluno);
+        daoTurmas.atualizar(turmas);
 
         System.out.println("\nAtualizado com sucesso!");
 

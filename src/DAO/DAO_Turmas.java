@@ -64,6 +64,30 @@ public class DAO_Turmas {
         return listaTurmas;
     }
 
+    public void atualizar(Turmas turmas){
+        try {
+            Connection conn = ConexaoBD.getConexao(); 
+    
+            String sql = "UPDATE ALUNO SET SEMESTRE = ?, ANO = ?, HORA = ?, TIPO = ? WHERE ID = ?";
+    
+            PreparedStatement ps = conn.prepareStatement(sql);
+    
+            ps.setInt(1, turmas.getSemestre());
+            ps.setInt(2, turmas.getAno());
+            ps.setString(3, turmas.getHora());
+            ps.setString(3, turmas.getTipo());
+            ps.setInt(3, turmas.getID());
+
+    
+            ps.execute();
+            ps.close();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
     public void remover(int ID) {
         try {
             Connection connection = ConexaoBD.getInstance().getConnection();

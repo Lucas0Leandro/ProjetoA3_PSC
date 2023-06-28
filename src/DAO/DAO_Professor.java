@@ -68,6 +68,31 @@ public class DAO_Professor {
         return listaProfessor;
     }
 
+    public void atualizar(Professor professor){
+        try {
+            Connection conn = ConexaoBD.getConexao(); 
+    
+            String sql = "UPDATE ALUNO SET NOME = ?, SOBRENOME = ?, FONE = ?, ENDERECO = ?, CPF = ?, CEP = ? WHERE ID = ?";
+    
+            PreparedStatement ps = conn.prepareStatement(sql);
+    
+            ps.setString(1, professor.getNome());
+            ps.setString(2, professor.getSobrenome());
+            ps.setString(3, professor.getfone());
+            ps.setString(4, professor.getendereço());
+            ps.setString(5, professor.getCPF());
+            ps.setInt(6, professor.getcep());
+            ps.setInt(7, professor.getId());
+    
+            ps.execute();
+            ps.close();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
     public void remover(int ID) {
         try {
             Connection connection = ConexaoBD.getInstance().getConnection();

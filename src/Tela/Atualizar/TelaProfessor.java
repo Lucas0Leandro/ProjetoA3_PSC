@@ -1,4 +1,4 @@
-package Tela.Consultas;
+package Tela.Atualizar;
 
 import java.util.List;
 import java.util.Scanner;
@@ -9,14 +9,14 @@ public class TelaProfessor {
     
     public void exibir() {
         String nome, sobrenome, CPF, fone, endereco;
-        int ra, cep;
+        int id, cep;
 
         Scanner teclado = new Scanner(System.in);
 
         System.out.println("//--------------------//");
         System.out.println("   ATUALIZAR DADOS");
-        System.out.print("RA do Aluno: ");
-        ra = teclado.nextInt();
+        System.out.print("ID do Professor: ");
+        id = teclado.nextInt();
         teclado.nextLine();
         System.out.print("\nNome: ");
         nome = teclado.nextLine();
@@ -32,10 +32,10 @@ public class TelaProfessor {
         cep = teclado.nextInt();
         
 
-        Aluno aluno = new Aluno(ra, nome, sobrenome, CPF, fone, endereco, cep);
-        DAO_Aluno daoAluno = new DAO_Aluno();
+        Professor aluno = new Professor(id, nome, sobrenome, CPF, fone, endereco, cep);
+        DAO_Professor daoAluno = new DAO_Professor();
 
-        aluno.setRa(ra);
+        aluno.setId(id);
         aluno.setNome(nome);
         aluno.setSobrenome(sobrenome);
         aluno.setCPF(CPF);

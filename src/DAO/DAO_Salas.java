@@ -60,6 +60,28 @@ public class DAO_Salas {
         return listaSala;
     }
 
+    public void atualizar(Salas salas){
+        try {
+            Connection conn = ConexaoBD.getConexao(); 
+    
+            String sql = "UPDATE ALUNO SET CAPACIDADETOTAL = ?, LOCAL = ? WHERE ID = ?";
+    
+            PreparedStatement ps = conn.prepareStatement(sql);
+    
+            ps.setInt(1, salas.getCapacidade());
+            ps.setString(2, salas.getLocal());
+            ps.setInt(3, salas.getID());
+
+    
+            ps.execute();
+            ps.close();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
     public void remover(int ID) {
         try {
             Connection connection = ConexaoBD.getInstance().getConnection();

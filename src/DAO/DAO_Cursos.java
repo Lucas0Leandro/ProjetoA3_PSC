@@ -64,6 +64,29 @@ public class DAO_Cursos {
         return listaCursos;
     }
 
+    public void atualizar(Cursos cursos){
+        try {
+            Connection conn = ConexaoBD.getConexao(); 
+    
+            String sql = "UPDATE ALUNO SET NOME = ?, CARGAHORARIA = ?, DESCRICAOSOBRE = ? WHERE ID = ?";
+    
+            PreparedStatement ps = conn.prepareStatement(sql);
+    
+            ps.setString(1, cursos.getNome());
+            ps.setInt(2, cursos.getCargaHoraria());
+            ps.setString(3, cursos.getDescriçãoSobre());
+            ps.setInt(4, cursos.getId());
+
+    
+            ps.execute();
+            ps.close();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
     public void remover(int ID) {
         try {
             Connection connection = ConexaoBD.getInstance().getConnection();

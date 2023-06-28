@@ -1,4 +1,4 @@
-package Tela.Consultas;
+package Tela.Atualizar;
 
 import java.util.Scanner;
 import DAO.DAO_Salas;
@@ -8,42 +8,31 @@ import java.util.List;
 public class TelaSalas {
     
     public void exibir() {
-        String nome, sobrenome, CPF, fone, endereco;
-        int ra, cep;
+        String local;
+        int id, capacidade;
 
         Scanner teclado = new Scanner(System.in);
 
         System.out.println("//--------------------//");
         System.out.println("   ATUALIZAR DADOS");
-        System.out.print("RA do Aluno: ");
-        ra = teclado.nextInt();
+        System.out.print("ID da Sala: ");
+        id = teclado.nextInt();
         teclado.nextLine();
-        System.out.print("\nNome: ");
-        nome = teclado.nextLine();
-        System.out.print("\nSobrenome: ");
-        sobrenome = teclado.nextLine();
-        System.out.print("\nCPF: ");
-        CPF = teclado.nextLine();
-        System.out.print("\nFone: ");
-        fone = teclado.nextLine();
-        System.out.print("\nEndereco: ");
-        endereco = teclado.nextLine();
-        System.out.print("\nCEP: ");
-        cep = teclado.nextInt();
+        System.out.print("\nCapacidade: ");
+        capacidade = teclado.nextInt();
+        teclado.nextLine();
+        System.out.print("\nLocal: ");
+        local = teclado.nextLine();
         
 
-        Aluno aluno = new Aluno(ra, nome, sobrenome, CPF, fone, endereco, cep);
-        DAO_Aluno daoAluno = new DAO_Aluno();
+        Salas salas = new Salas(id, capacidade, local);
+        DAO_Salas daosSalas = new DAO_Salas();
 
-        aluno.setRa(ra);
-        aluno.setNome(nome);
-        aluno.setSobrenome(sobrenome);
-        aluno.setCPF(CPF);
-        aluno.setFone(fone);
-        aluno.setEndereço(endereco);
-        aluno.setCep(cep);
+        salas.setID(id);
+        salas.setCapacidade(capacidade);
+        salas.setLocal(local);
 
-        daoAluno.atualizar(aluno);
+        daosSalas.atualizar(salas);
 
         System.out.println("\nAtualizado com sucesso!");
 
