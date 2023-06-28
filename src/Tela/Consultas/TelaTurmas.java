@@ -25,6 +25,7 @@ public class TelaTurmas {
                 System.out.println("Curso: " + curso.getCurso());
                 System.out.println("Professor: " + curso.getProfessor());
                 System.out.println("Sala: " + curso.getSala());
+                System.out.println("Alunos: " + curso.getListaAlunos());
                 System.out.println("Hora: " + curso.getHora());
                 System.out.println("--------------------------------------------------------------------");
             }

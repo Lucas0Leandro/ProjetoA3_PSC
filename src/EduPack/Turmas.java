@@ -3,11 +3,11 @@ package EduPack;
 
 public class Turmas {
 
-    private int id, semestre, ano, curso, professor, sala;
+    private int id, semestre, ano, curso, professor, sala, listaAlunos;
     private String hora;
 
 
-    public Turmas(int id, int semestre, int ano, int curso, int professor, int sala, String hora) {
+    public Turmas(int id, int semestre, int ano, int curso, int professor, int sala, int listaAlunos, String hora) {
         this.id = id;
         this.semestre = semestre;
         this.ano = ano;
@@ -77,6 +77,14 @@ public class Turmas {
         this.sala = sala;
     }
 
+    public int getListaAlunos() {
+        return listaAlunos;
+    }
+
+    public void setListaAlunos(int listaAlunos) {
+        this.listaAlunos = listaAlunos;
+    }
+
 
     public String getHora() {
         return hora;
@@ -87,7 +95,6 @@ public class Turmas {
         this.hora = hora;
     }
 
-    
 }
 
 

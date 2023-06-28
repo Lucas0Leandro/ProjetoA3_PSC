@@ -2,6 +2,8 @@ package Tela.Cadastros;
 
 import java.util.List;
 import java.util.Scanner;
+
+import DAO.DAO_Aluno;
 import DAO.DAO_Cursos;
 import DAO.DAO_Professor;
 import DAO.DAO_Salas;
@@ -9,21 +11,24 @@ import DAO.DAO_Turmas;
 import EduPack.Cursos;
 import EduPack.Salas;
 import EduPack.Turmas;
+import PessoaPack.Aluno;
 import PessoaPack.Professor;
 
 public class TelaTurmas {
     
     public void exibir() throws InterruptedException {
         String hora;
-        int semestre, ano, curso, professor, sala;
+        int semestre, ano, curso, professor, sala, listaAlunos;
 
         DAO_Cursos daoCursos = new DAO_Cursos();
         DAO_Professor daoProfessor = new DAO_Professor();
         DAO_Salas daoSala = new DAO_Salas();
+        DAO_Aluno daoAluno = new DAO_Aluno();
         
         List<Cursos> listaCurso = daoCursos.listar();
         List<Professor> listaProfessor = daoProfessor.listar();
         List<Salas> listaSala = daoSala.listar();
+        List<Aluno> listaAluno = daoAluno.listar();
 
         Scanner teclado = new Scanner(System.in);
 
@@ -85,19 +90,36 @@ public class TelaTurmas {
 
         clearTerminal();    
 
+        System.out.print("\nEscolha o aluno pelo RA: ");
+
+            for (Aluno aluno : listaAluno) {
+                System.out.println("\nRA: " + aluno.getRa());
+                System.out.println("Nome: " + aluno.getNome());
+                System.out.println("Sobrenome: " + aluno.getSobrenome());
+                System.out.println("CPF: " + aluno.getCPF());
+                System.out.println("Fone: " + aluno.getfone());
+                System.out.println("Endereco: " + aluno.getendereço());
+                System.out.println("CEP: " + aluno.getcep());
+                System.out.println("--------------------------------------------------------------------");
+            }
+            
+            listaAlunos = teclado.nextInt();
+            teclado.nextLine();
+
         System.out.print("\nHorario: ");
         hora = teclado.nextLine();
         System.out.println("       CONCLUIDO");
         System.out.println("//--------------------//\n");
 
-        Turmas turmas = new Turmas(0, 0, 0, 0, 0, 0, hora);
+        Turmas turmas = new Turmas(0, 0, 0, 0, 0, 0, 0, hora);
         
         turmas.setSemestre(semestre);
         turmas.setAno(ano);
         turmas.setCurso(curso);
-        turmas.setHora(hora);
         turmas.setProfessor(professor);
         turmas.setSala(sala);
+        turmas.setListaAlunos(listaAlunos);
+        turmas.setHora(hora);
         
         DAO_Turmas daoTurmas = new DAO_Turmas();
         daoTurmas.cadastrarTurmas(turmas);
