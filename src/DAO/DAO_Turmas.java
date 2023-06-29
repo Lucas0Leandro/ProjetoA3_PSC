@@ -98,9 +98,9 @@ public class DAO_Turmas {
         return listaTurmas;
     }
 
-    public void atualizar(Turmas turmas){
+    public void atualizar(Turmas turmas) {
         try {
-            Connection conn = ConexaoBD.getConexao(); 
+            Connection conn = ConexaoBD.getConexao();
     
             String sql = "UPDATE TURMAS SET SEMESTRE = ?, ANO = ?, CURSO = ?, PROFESSOR = ?, SALA = ?, HORA = ? WHERE ID = ?";
     
@@ -111,17 +111,37 @@ public class DAO_Turmas {
             ps.setInt(3, turmas.getCurso());
             ps.setInt(4, turmas.getProfessor());
             ps.setInt(5, turmas.getSala());
-            ps.setInt(6, turmas.getId());
-            ps.setString(8, turmas.getHora());
+            ps.setString(6, turmas.getHora());
+            ps.setInt(7, turmas.getId());
 
     
             ps.execute();
             ps.close();
-            
+    
+            // Remover todas as associações de alunos existentes para esta turma
+            String sqlDeleteMatricula = "DELETE FROM MATRICULA WHERE TURMA = ?";
+            PreparedStatement psDeleteMatricula = conn.prepareStatement(sqlDeleteMatricula);
+            psDeleteMatricula.setInt(1, turmas.getId());
+
+
+            psDeleteMatricula.execute();
+            psDeleteMatricula.close();
+    
+            // Inserir as novas associações de alunos para esta turma
+            for (Integer alunos : turmas.getAlunos()) {
+                String sqlInsertMatricula = "INSERT INTO MATRICULA (TURMA, ALUNOS) VALUES (?, ?)";
+                PreparedStatement psInsertMatricula = conn.prepareStatement(sqlInsertMatricula);
+                psInsertMatricula.setInt(1, turmas.getId());
+                psInsertMatricula.setInt(2, alunos);
+
+
+                psInsertMatricula.execute();
+                psInsertMatricula.close();
+            }
+    
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     public void remover(int ID) {

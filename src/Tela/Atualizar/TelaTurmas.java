@@ -5,9 +5,15 @@ import java.util.List;
 import java.util.Scanner;
 
 import DAO.DAO_Aluno;
+import DAO.DAO_Cursos;
+import DAO.DAO_Professor;
+import DAO.DAO_Salas;
 import DAO.DAO_Turmas;
+import EduPack.Cursos;
+import EduPack.Salas;
 import EduPack.Turmas;
 import PessoaPack.Aluno;
+import PessoaPack.Professor;
 
 public class TelaTurmas {
     
@@ -15,12 +21,16 @@ public class TelaTurmas {
         String hora;
         int semestre, ano, ID, professor, sala, curso, alunos;
 
-        
-
         Scanner teclado = new Scanner(System.in);
 
+        DAO_Cursos daoCursos = new DAO_Cursos();
+        DAO_Professor daoProfessor = new DAO_Professor();
+        DAO_Salas daoSala = new DAO_Salas();
         DAO_Aluno daoAluno = new DAO_Aluno();
 
+        List<Cursos> listaCurso = daoCursos.listar();
+        List<Professor> listaProfessor = daoProfessor.listar();
+        List<Salas> listaSala = daoSala.listar();
         List<Aluno> listaAluno = daoAluno.listar();
 
         System.out.println("//--------------------//");
@@ -36,59 +46,40 @@ public class TelaTurmas {
         teclado.nextLine();
         System.out.println("Curso: ");
         curso = teclado.nextInt();
-        teclado.nextLine();
         System.out.println("Professor: ");
         professor = teclado.nextInt();
         teclado.nextLine();
         System.out.println("Sala: ");
         sala = teclado.nextInt();
         teclado.nextLine();
+        System.out.println("Alunos: ");
+        String alunosSelecionados = teclado.nextLine();
         System.out.println("Horario: ");
         hora = teclado.nextLine();
-        System.out.println("Alunos: ");
-        alunos = teclado.nextInt();
         
+      // Converter os IDs dos alunos selecionados em uma lista de inteiros
+      List<Integer> alunosIds = new ArrayList<>();
+      String[] alunosIdsArray = alunosSelecionados.split(",");
+      for (String id : alunosIdsArray) {
+          alunosIds.add(Integer.parseInt(id.trim()));
+  }
 
-        String alunosSelecionados = teclado.nextLine();
+      Turmas turmas = new Turmas(0, 0, 0, 0, 0, 0, hora, alunosIds, alunosSelecionados);
 
-        List<Integer> alunosIds = new ArrayList<>();
-        String[] alunosIdsArray = alunosSelecionados.split(",");
-        for (String id : alunosIdsArray) {
-            alunosIds.add(Integer.parseInt(id.trim()));
-    }
+      turmas.setSemestre(semestre);
+      turmas.setAno(ano);
+      turmas.setCurso(curso);
+      turmas.setProfessor(professor);
+      turmas.setSala(sala);
+      turmas.setHora(hora);
+      turmas.setAlunos(alunosIds);
 
-        Turmas turmas = new Turmas(0, 0, 0, 0, 0, 0, hora, alunosIds, alunosSelecionados);
+      DAO_Turmas daoTurmas = new DAO_Turmas();
 
-        turmas.setSemestre(semestre);
-        turmas.setAno(ano);
-        turmas.setCurso(curso);
-        turmas.setProfessor(professor);
-        turmas.setSala(sala);
-        turmas.setHora(hora);
-        turmas.setAlunos(alunosIds);
+        daoTurmas.atualizar(turmas);
 
-        DAO_Turmas daoTurmas = new DAO_Turmas();
+        System.out.println("\nAtualizado com sucesso!");
 
-        // Verifica disponibilidade da sala
-        if (!daoTurmas.verificarSala(sala, hora)) {
-            System.out.println("\nErro: A sala ja esta alocada para outra turma no mesmo horario.");
-            return; // Retorna sem adicionar a turma ao banco de dados
-        }
-
-        // Verifica disponibilidade do professor
-        if (!daoTurmas.verificarProf(professor, hora)) {
-            System.out.println("\nErro: O professor ja esta alocado para outra turma no mesmo horario.");
-            return; // Retorna sem adicionar a turma ao banco de dados
-        }
-
-        daoTurmas.cadastrarTurmas(turmas);
-
-        clearTerminal();
-    }
-
-    public static void clearTerminal() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
     }
 
 }
