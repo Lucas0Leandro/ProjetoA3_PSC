@@ -9,7 +9,6 @@ Alunos: Lucas de Oliveira Leandro
 Projeto acadêmico para desenvolvimento de um pequeno sistema CRUD para uma empresa que realiza cursos em diversas áreas com
 temática fixa, com controle e cadastro de cursos, professores, alunos e salas.
 
-
 Siga os passos a seguir:
 
 1°: Deve ser instalado o MySQL Workbench;
@@ -25,15 +24,23 @@ em um local de fácil acesso;
 
 6°: Feche a janela e clique no botão "OK";
 
+7°: Clique em localhost;
 
+8°: Agora crie uma Data Base chamada escola com o comando abaixo, após colocar o comando clique no ícone em formato de raio,
+no canto superior esquerdo;
 
+9°: Procure a aba "Server" no canto superior esquerdo, clique em "Server", em seguida em "Data Import";
 
+10°: Clique nos três pontinhos, no canto superior direito;
 
- - Abra a pasta "projetoA3" e encontre o arquivo executável "Escola.exe", localizado na pasta "projetoA3" e clique para 
+11°: Selecione a pasta "EscolaA3" que você descompactou, em seguida clique no botão "Start Import" no canto inferior esquerdo
+e aguarde a instalação;
+
+12°: Abra a pasta "projetoA3" e encontre o arquivo executável "Escola.exe", localizado na pasta "projetoA3" e clique para 
 executar, ou abra a  em um editor de código o projeto e localize o arquivo "Main.java" em "projetoA3 > src > Tela 
-> Main.java" e faça o Debug do código. Abaixo vão opções de editores de código para fazer Debug do arquivo.;
+> Main.java" e faça o Debug do código. Abaixo vão opções de editores de código para fazer Debug do arquivo;
 
-2° - A navegação será em uma listagem onde parareceram opções com uma enumeração ao lado, seguindo o exemplo:
+13°: A navegação será em uma listagem onde apareceram opções com uma enumeração ao lado, seguindo o exemplo:
 
 //--------------------//
         Navegação     
@@ -44,7 +51,7 @@ executar, ou abra a  em um editor de código o projeto e localize o arquivo "Mai
 5 - Opção5      
 //--------------------//
 
-3° - Haverá páginas de cadastro, onde terá campos para digitar o que for pedido, seguinodo o exemplo:
+14°: Haverá páginas de cadastro, onde terá campos para digitar o que for pedido, seguindo o exemplo:
 
 //--------------------//
         Cadastro      
