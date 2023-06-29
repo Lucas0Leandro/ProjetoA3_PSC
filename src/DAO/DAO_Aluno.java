@@ -98,15 +98,22 @@ public class DAO_Aluno {
     public void remover(int RA) {
         try {
             Connection conn = ConexaoBD.getConexao();
+    
+            // Excluir registros na tabela "matricula" relacionados ao aluno
+            String sqlDeleteMatricula = "DELETE FROM MATRICULA WHERE ALUNOS = ?";
+            PreparedStatement psDeleteMatricula = conn.prepareStatement(sqlDeleteMatricula);
+            psDeleteMatricula.setInt(1, RA);
 
-            String sql = "DELETE FROM ALUNO WHERE RA = ?";
+            psDeleteMatricula.execute();
+            psDeleteMatricula.close();
+    
+            // Excluir o aluno da tabela "aluno"
+            String sqlDeleteAluno = "DELETE FROM ALUNO WHERE RA = ?";
+            PreparedStatement psDeleteAluno = conn.prepareStatement(sqlDeleteAluno);
+            psDeleteAluno.setInt(1, RA);
 
-            PreparedStatement ps = conn.prepareStatement(sql);
-
-            ps.setInt(1, RA);
-
-            ps.execute();
-            ps.close();
+            psDeleteAluno.execute();
+            psDeleteAluno.close();
             
         } catch (Exception e) {
             e.printStackTrace();

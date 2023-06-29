@@ -92,20 +92,29 @@ public class DAO_Professor {
 
     }
 
-    public void remover(int ID) {
+    public void remover(int professorId) {
         try {
             Connection conn = ConexaoBD.getConexao();
+    
+            // Excluir turmas associadas ao professor
+            String sqlDeleteTurmas = "DELETE FROM TURMAS WHERE PROFESSOR = ?";
+            PreparedStatement psDeleteTurmas = conn.prepareStatement(sqlDeleteTurmas);
 
-            String sql = "DELETE FROM PROFESSOR WHERE ID = ?";
+            psDeleteTurmas.setInt(1, professorId);
 
-            PreparedStatement statement = conn.prepareStatement(sql);
+            psDeleteTurmas.execute();
+            psDeleteTurmas.close();
+    
+            // Excluir o professor da tabela "professor"
+            String sqlDeleteProfessor = "DELETE FROM PROFESSOR WHERE ID = ?";
+            PreparedStatement psDeleteProfessor = conn.prepareStatement(sqlDeleteProfessor);
 
-            statement.setInt(1, ID);
-
-            statement.execute();
-            statement.close();
+            psDeleteProfessor.setInt(1, professorId);
             
-        } catch (SQLException e) {
+            psDeleteProfessor.execute();
+            psDeleteProfessor.close();
+            
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

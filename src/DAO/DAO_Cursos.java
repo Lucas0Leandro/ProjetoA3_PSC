@@ -86,18 +86,23 @@ public class DAO_Cursos {
 
     }
 
-    public void remover(int ID) {
+    public void remover(int cursoId) {
         try {
             Connection conn = ConexaoBD.getConexao();
-
-            String sql = "DELETE FROM CURSOS WHERE ID = ?";
-
-            PreparedStatement statement = conn.prepareStatement(sql);
-
-            statement.setInt(1, ID);
-
-            statement.execute();
-            statement.close();
+    
+            // Excluir registros na tabela "aluno" relacionados ao curso
+            String sqlDeleteAluno = "DELETE FROM aluno WHERE Curso = ?";
+            PreparedStatement psDeleteAluno = conn.prepareStatement(sqlDeleteAluno);
+            psDeleteAluno.setInt(1, cursoId);
+            psDeleteAluno.execute();
+            psDeleteAluno.close();
+    
+            // Excluir o curso da tabela "cursos"
+            String sqlDeleteCurso = "DELETE FROM cursos WHERE ID = ?";
+            PreparedStatement psDeleteCurso = conn.prepareStatement(sqlDeleteCurso);
+            psDeleteCurso.setInt(1, cursoId);
+            psDeleteCurso.execute();
+            psDeleteCurso.close();
             
         } catch (Exception e) {
             e.printStackTrace();

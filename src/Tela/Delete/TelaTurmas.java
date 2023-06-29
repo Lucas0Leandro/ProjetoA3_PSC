@@ -7,15 +7,15 @@ import DAO.DAO_Turmas;
 public class TelaTurmas {
     
     public void exibir() {
-        int ra;
+        int ID;
         Scanner teclado = new Scanner(System.in);
 
         System.out.println("//--------------------//");
         System.out.print("ID da Turma: ");
-        ra = teclado.nextInt();
+        ID = teclado.nextInt();
 
         DAO_Turmas daoTurmas = new DAO_Turmas();
-        daoTurmas.remover(ra);
+        daoTurmas.remover(ID);
 
         clearTerminal();
 

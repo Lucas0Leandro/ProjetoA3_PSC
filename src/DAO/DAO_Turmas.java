@@ -148,6 +148,14 @@ public class DAO_Turmas {
         try {
             Connection conn = ConexaoBD.getConexao();
 
+             // Excluir registros na tabela "matricula" relacionados ao aluno
+             String sqlDeleteMatricula = "DELETE FROM MATRICULA WHERE TURMA = ?";
+             PreparedStatement psDeleteMatricula = conn.prepareStatement(sqlDeleteMatricula);
+             psDeleteMatricula.setInt(1, ID);
+ 
+             psDeleteMatricula.execute();
+             psDeleteMatricula.close();
+
             String sql = "DELETE FROM TURMAS WHERE ID = ?";
 
             PreparedStatement ps = conn.prepareStatement(sql);
