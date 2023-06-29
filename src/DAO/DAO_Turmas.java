@@ -12,30 +12,55 @@ import EduPack.Turmas;
 
 public class DAO_Turmas {
 
-    public void cadastrarTurmas(Turmas turmas){
-
-        String sql = "INSERT INTO TURMAS (SEMESTRE, ANO, CURSO, PROFESSOR, SALA, LISTAALUNOS, HORA) VALUES(?, ?, ?, ?, ?, ?, ?)";
-
+    public void cadastrarTurmas(Turmas turmas) {
+        String sql = "INSERT INTO TURMAS (SEMESTRE, ANO, CURSO, PROFESSOR, SALA, HORA) VALUES (?, ?, ?, ?, ?, ?)";
+    
         PreparedStatement ps = null;
-        
+        ResultSet generatedKeys = null;
+    
+        try {
+            ps = ConexaoBD.getConexao().prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
+            ps.setLong(1, turmas.getSemestre());
+            ps.setLong(2, turmas.getAno());
+            ps.setLong(3, turmas.getCurso());
+            ps.setLong(4, turmas.getProfessor());
+            ps.setLong(5, turmas.getSala());
+            ps.setString(6, turmas.getHora());
+    
+            ps.execute();
+    
+            // Obter as chaves geradas
+            generatedKeys = ps.getGeneratedKeys();
+            if (generatedKeys.next()) {
+                int turmaId = generatedKeys.getInt(1);
+    
+                // Percorrer a lista de IDs dos alunos associados à turma
+                for (Integer alunoId : turmas.getAlunos()) {
+                    String sqlInsertTurmaAluno = "INSERT INTO MATRICULA (TURMA, ALUNOS) VALUES (?, ?)";
+                    PreparedStatement psTurmaAluno = ConexaoBD.getConexao().prepareStatement(sqlInsertTurmaAluno);
+                    psTurmaAluno.setInt(1, turmaId);
+                    psTurmaAluno.setInt(2, alunoId);
+
+                    psTurmaAluno.execute();
+                    psTurmaAluno.close();
+                }
+            }
+    
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // Fechar os recursos (PreparedStatement e ResultSet)
             try {
-                ps = ConexaoBD.getConexao().prepareStatement(sql);
-                ps.setLong(1, turmas.getSemestre());
-                ps.setLong(2, turmas.getAno());
-                ps.setLong(3, turmas.getCurso());
-                ps.setLong(4, turmas.getProfessor());
-                ps.setLong(5, turmas.getSala());
-                ps.setLong(6, turmas.getListaAlunos());
-                ps.setString(7, turmas.getHora());
-
-
-                ps.execute();
-                ps.close();
-                
+                if (generatedKeys != null) {
+                    generatedKeys.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
             } catch (SQLException e) {
                 e.printStackTrace();
+            }
         }
-
     }
 
     public List<Turmas> listar() {
@@ -43,21 +68,23 @@ public class DAO_Turmas {
         try {
             Connection connection = ConexaoBD.getConexao(); // Obtém a conexão corretamente
 
-            String sql = "SELECT * FROM TURMAS";
+            String sql = "SELECT t.*, m.ALUNOS " +
+                         "FROM TURMAS t " +
+                         "LEFT JOIN MATRICULA m ON t.ID = m.TURMA";
 
             PreparedStatement statement = connection.prepareStatement(sql);
 
             ResultSet rs = statement.executeQuery();
 
             while (rs.next()) {
-                Turmas turmas = new Turmas(0, 0, 0, 0, 0, 0, 0, sql); 
+                Turmas turmas = new Turmas(0, 0, 0, 0, 0, 0, sql, null, 0); 
                 turmas.setId(rs.getInt("ID"));
                 turmas.setSemestre(rs.getInt("Semestre"));
                 turmas.setAno(rs.getInt("Ano"));
                 turmas.setCurso(rs.getInt("Curso"));
                 turmas.setProfessor(rs.getInt("Professor"));
                 turmas.setSala(rs.getInt("Sala"));
-                turmas.setListaAlunos(rs.getInt("ListaAlunos"));
+                turmas.setListaAlunos(rs.getInt("ALUNOS"));
                 turmas.setHora(rs.getString("Hora"));
 
                 listaTurmas.add(turmas);
@@ -74,7 +101,7 @@ public class DAO_Turmas {
         try {
             Connection conn = ConexaoBD.getConexao(); 
     
-            String sql = "UPDATE TURMAS SET SEMESTRE = ?, ANO = ?, CURSO = ?, PROFESSOR = ?, SALA = ?, LISTAALUNOS = ?, HORA = ? WHERE ID = ?";
+            String sql = "UPDATE TURMAS SET SEMESTRE = ?, ANO = ?, CURSO = ?, PROFESSOR = ?, SALA = ?, HORA = ? WHERE ID = ?";
     
             PreparedStatement ps = conn.prepareStatement(sql);
     
@@ -84,7 +111,6 @@ public class DAO_Turmas {
             ps.setInt(4, turmas.getProfessor());
             ps.setInt(5, turmas.getSala());
             ps.setInt(6, turmas.getId());
-            ps.setInt(7, turmas.getListaAlunos());
             ps.setString(8, turmas.getHora());
 
     

@@ -1,13 +1,14 @@
 package EduPack;
 
+import java.util.List;
 
 public class Turmas {
 
     private int id, semestre, ano, curso, professor, sala, listaAlunos;
     private String hora;
-
-
-    public Turmas(int id, int semestre, int ano, int curso, int professor, int sala, int listaAlunos, String hora) {
+    private List<Integer> alunos;
+    
+    public Turmas(int id, int semestre, int ano, int curso, int professor, int sala, String hora, List<Integer> alunos, int listaAlunos) {
         this.id = id;
         this.semestre = semestre;
         this.ano = ano;
@@ -15,6 +16,7 @@ public class Turmas {
         this.curso = curso;
         this.professor = professor;
         this.sala = sala;
+        this.alunos = alunos;
     }
 
     //Usando o get para podemos utilizar em outros package de forma publica
@@ -77,14 +79,6 @@ public class Turmas {
         this.sala = sala;
     }
 
-    public int getListaAlunos() {
-        return listaAlunos;
-    }
-
-    public void setListaAlunos(int listaAlunos) {
-        this.listaAlunos = listaAlunos;
-    }
-
 
     public String getHora() {
         return hora;
@@ -94,7 +88,26 @@ public class Turmas {
     public void setHora(String hora) {
         this.hora = hora;
     }
+    
 
+    public List<Integer> getAlunos() {
+        return alunos;
+    }
+
+    public void setAlunos(List<Integer> alunos) {
+        this.alunos = alunos;
+    }
+    
+
+    public int getListaAlunos() {
+        return listaAlunos;
+    }
+
+    public void setListaAlunos(int listaAlunos) {
+        this.listaAlunos = listaAlunos;
+    }
+
+    
 }
 
 

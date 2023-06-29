@@ -1,5 +1,6 @@
 package Tela.Cadastros;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -103,9 +104,17 @@ public class TelaTurmas {
             System.out.println("--------------------------------------------------------------------");
         }
 
-        listaAlunos = teclado.nextInt();
-        teclado.nextLine();
+            // Exibir lista de alunos para o usuário escolher
+            System.out.println("\nEscolha os alunos pelo RA (separados por vírgula): ");
+            for (Aluno aluno : listaAluno) {
+                System.out.println("\nRA: " + aluno.getRa() + " - Nome: " + aluno.getNome());
+            // exibir outros detalhes do aluno, se necessário
+        }
+
+        String alunosSelecionados = teclado.nextLine();
+
         
+
         clearTerminal();
 
         System.out.print("\nHorario: ");
@@ -113,15 +122,22 @@ public class TelaTurmas {
         System.out.println("       CONCLUIDO");
         System.out.println("//--------------------//\n");
 
-        Turmas turmas = new Turmas(0, 0, 0, 0, 0, 0, 0, hora);
+        // Converter os IDs dos alunos selecionados em uma lista de inteiros
+        List<Integer> alunosIds = new ArrayList<>();
+        String[] alunosIdsArray = alunosSelecionados.split(",");
+        for (String id : alunosIdsArray) {
+            alunosIds.add(Integer.parseInt(id.trim()));
+    }
+
+        Turmas turmas = new Turmas(0, 0, 0, 0, 0, 0, hora, alunosIds, 0);
 
         turmas.setSemestre(semestre);
         turmas.setAno(ano);
         turmas.setCurso(curso);
         turmas.setProfessor(professor);
         turmas.setSala(sala);
-        turmas.setListaAlunos(listaAlunos);
         turmas.setHora(hora);
+        turmas.setAlunos(alunosIds);
 
         DAO_Turmas daoTurmas = new DAO_Turmas();
 
