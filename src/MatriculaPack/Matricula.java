@@ -1,37 +1,31 @@
 package MatriculaPack;
 
-import java.sql.Date;
-
 public class Matricula {
 
-    private int id;
-    private Date data;
-    private boolean validada;
-    private Date expira;
+    private int id, turma, alunos;
 
-    
     public int getId() {
         return id;
     }
+
     public void setId(int id) {
         this.id = id;
     }
-    public Date getData() {
-        return data;
+
+    public int getTurma() {
+        return turma;
     }
-    public void setData(Date data) {
-        this.data = data;
+
+    public void setTurma(int turma) {
+        this.turma = turma;
     }
-    public boolean isValidada() {
-        return validada;
+
+    public int getAlunos() {
+        return alunos;
     }
-    public void setValidada(boolean validada) {
-        this.validada = validada;
+
+    public void setAlunos(int alunos) {
+        this.alunos = alunos;
     }
-    public Date getExpira() {
-        return expira;
-    }
-    public void setExpira(Date expira) {
-        this.expira = expira;
-    }
+
 }
