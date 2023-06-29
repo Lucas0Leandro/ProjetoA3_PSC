@@ -113,8 +113,6 @@ public class TelaTurmas {
 
         String alunosSelecionados = teclado.nextLine();
 
-        
-
         clearTerminal();
 
         System.out.print("\nHorario: ");
@@ -129,7 +127,7 @@ public class TelaTurmas {
             alunosIds.add(Integer.parseInt(id.trim()));
     }
 
-        Turmas turmas = new Turmas(0, 0, 0, 0, 0, 0, hora, alunosIds, 0);
+        Turmas turmas = new Turmas(0, 0, 0, 0, 0, 0, hora, alunosIds, alunosSelecionados);
 
         turmas.setSemestre(semestre);
         turmas.setAno(ano);

@@ -4,11 +4,11 @@ import java.util.List;
 
 public class Turmas {
 
-    private int id, semestre, ano, curso, professor, sala, listaAlunos;
-    private String hora;
+    private int id, semestre, ano, curso, professor, sala;
+    private String hora, listaAlunos;
     private List<Integer> alunos;
     
-    public Turmas(int id, int semestre, int ano, int curso, int professor, int sala, String hora, List<Integer> alunos, int listaAlunos) {
+    public Turmas(int id, int semestre, int ano, int curso, int professor, int sala, String hora, List<Integer> alunos, String listaAlunos) {
         this.id = id;
         this.semestre = semestre;
         this.ano = ano;
@@ -17,6 +17,9 @@ public class Turmas {
         this.professor = professor;
         this.sala = sala;
         this.alunos = alunos;
+    }
+
+    public Turmas(int i, int j, int k, int l, int m, int n, int o, String hora2) {
     }
 
     //Usando o get para podemos utilizar em outros package de forma publica
@@ -97,17 +100,16 @@ public class Turmas {
     public void setAlunos(List<Integer> alunos) {
         this.alunos = alunos;
     }
-    
 
-    public int getListaAlunos() {
+
+    public String getListaAlunos() {
         return listaAlunos;
     }
 
-    public void setListaAlunos(int listaAlunos) {
+    public void setListaAlunos(String listaAlunos) {
         this.listaAlunos = listaAlunos;
     }
 
-    
 }
 
 

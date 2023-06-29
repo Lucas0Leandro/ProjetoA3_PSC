@@ -66,30 +66,31 @@ public class DAO_Turmas {
     public List<Turmas> listar() {
         List<Turmas> listaTurmas = new ArrayList<Turmas>();
         try {
-            Connection connection = ConexaoBD.getConexao(); // Obtém a conexão corretamente
-
-            String sql = "SELECT t.*, m.ALUNOS " +
+            Connection connection = ConexaoBD.getConexao();
+    
+            String sql = "SELECT t.ID, t.SEMESTRE, t.ANO, t.CURSO, t.PROFESSOR, t.SALA, t.HORA, GROUP_CONCAT(m.ALUNOS SEPARATOR ', ') AS ALUNOS " +
                          "FROM TURMAS t " +
-                         "LEFT JOIN MATRICULA m ON t.ID = m.TURMA";
-
+                         "LEFT JOIN MATRICULA m ON t.ID = m.TURMA " +
+                         "GROUP BY t.ID";
+    
             PreparedStatement statement = connection.prepareStatement(sql);
-
+    
             ResultSet rs = statement.executeQuery();
-
+    
             while (rs.next()) {
-                Turmas turmas = new Turmas(0, 0, 0, 0, 0, 0, sql, null, 0); 
+                Turmas turmas = new Turmas(0, 0, 0, 0, 0, 0, sql, null, sql); 
                 turmas.setId(rs.getInt("ID"));
-                turmas.setSemestre(rs.getInt("Semestre"));
-                turmas.setAno(rs.getInt("Ano"));
-                turmas.setCurso(rs.getInt("Curso"));
-                turmas.setProfessor(rs.getInt("Professor"));
-                turmas.setSala(rs.getInt("Sala"));
-                turmas.setListaAlunos(rs.getInt("ALUNOS"));
-                turmas.setHora(rs.getString("Hora"));
-
+                turmas.setSemestre(rs.getInt("SEMESTRE"));
+                turmas.setAno(rs.getInt("ANO"));
+                turmas.setCurso(rs.getInt("CURSO"));
+                turmas.setProfessor(rs.getInt("PROFESSOR"));
+                turmas.setSala(rs.getInt("SALA"));
+                turmas.setListaAlunos(rs.getString("ALUNOS"));
+                turmas.setHora(rs.getString("HORA"));
+    
                 listaTurmas.add(turmas);
             }
-
+    
         } catch (Exception e) {
             e.printStackTrace();
         }
