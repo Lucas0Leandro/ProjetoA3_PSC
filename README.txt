@@ -2,7 +2,9 @@ Trabalho - Projeto da avaliação A3
 Professores: Marcelo Petri
 	     Jader Marques
 Alunos: Lucas de Oliveira Leandro
+        Lucas Franco Da Silva
 	Henrique Luigi Carminatti
+        Miguel Mews Bruner
 
 Projeto acadêmico para desenvolvimento de um pequeno sistema CRUD para uma empresa que realiza cursos em diversas áreas com
 temática fixa, com controle e cadastro de cursos, professores, alunos e salas.
