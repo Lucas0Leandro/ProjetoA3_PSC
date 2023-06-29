@@ -32,11 +32,11 @@ no canto superior esquerdo;
 10°: Clique nos três pontinhos, no canto superior direito;
 
 11°: Selecione a pasta "EscolaA3" que você descompactou, em seguida clique no botão "Start Import" no canto inferior esquerdo
-e aguarde a instalação.
+e aguarde a instalação;
 
 12°: Abra a pasta "projetoA3" e encontre o arquivo executável "Escola.exe", localizado na pasta "projetoA3" e clique para 
 executar, ou abra a  em um editor de código o projeto e localize o arquivo "Main.java" em "projetoA3 > src > Tela 
-> Main.java" e faça o Debug do código. Abaixo vão opções de editores de código para fazer Debug do arquivo.;
+> Main.java" e faça o Debug do código. Abaixo vão opções de editores de código para fazer Debug do arquivo;
 
 13°: A navegação será em uma listagem onde parareceram opções com uma enumeração ao lado, seguindo o exemplo:
 
@@ -49,7 +49,7 @@ executar, ou abra a  em um editor de código o projeto e localize o arquivo "Mai
 5 - Opção5      
 //--------------------//
 
-3° - Haverá páginas de cadastro, onde terá campos para digitar o que for pedido, seguinodo o exemplo:
+14°: Haverá páginas de cadastro, onde terá campos para digitar o que for pedido, seguinodo o exemplo:
 
 //--------------------//
         Cadastro      
