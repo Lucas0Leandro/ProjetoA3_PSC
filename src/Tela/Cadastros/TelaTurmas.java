@@ -104,6 +104,7 @@ public class TelaTurmas {
             System.out.println("--------------------------------------------------------------------");
         }
 
+        
             // Exibir lista de alunos para o usuário escolher
             System.out.println("\nEscolha os alunos pelo RA (separados por vírgula): ");
             for (Aluno aluno : listaAluno) {
@@ -126,7 +127,6 @@ public class TelaTurmas {
         for (String id : alunosIdsArray) {
             alunosIds.add(Integer.parseInt(id.trim()));
     }
-
         Turmas turmas = new Turmas(0, 0, 0, 0, 0, 0, hora, alunosIds, alunosSelecionados);
 
         turmas.setSemestre(semestre);
