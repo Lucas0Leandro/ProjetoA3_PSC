@@ -4,7 +4,8 @@ Professores: Marcelo Petri
 Alunos: Lucas de Oliveira Leandro
 	Henrique Luigi Carminatti
 
-Projeto escolar CRUD de um pequeno sistema 
+Projeto acadêmico para desenvolvimento de um pequeno sistema CRUD para uma empresa que realiza cursos em diversas áreas com
+temática fixa, com controle e cadastro de cursos, professores, alunos e salas.
 
 Siga os passos a seguir:
 
