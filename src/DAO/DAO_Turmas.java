@@ -102,39 +102,32 @@ public class DAO_Turmas {
         try {
             Connection conn = ConexaoBD.getConexao();
     
-            String sql = "UPDATE TURMAS SET SEMESTRE = ?, ANO = ?, CURSO = ?, PROFESSOR = ?, SALA = ?, HORA = ? WHERE ID = ?";
-    
-            PreparedStatement ps = conn.prepareStatement(sql);
-    
-            ps.setInt(1, turmas.getSemestre());
-            ps.setInt(2, turmas.getAno());
-            ps.setInt(3, turmas.getCurso());
-            ps.setInt(4, turmas.getProfessor());
-            ps.setInt(5, turmas.getSala());
-            ps.setString(6, turmas.getHora());
-            ps.setInt(7, turmas.getId());
-
-    
-            ps.execute();
-            ps.close();
-    
             // Remover todas as associações de alunos existentes para esta turma
             String sqlDeleteMatricula = "DELETE FROM MATRICULA WHERE TURMA = ?";
             PreparedStatement psDeleteMatricula = conn.prepareStatement(sqlDeleteMatricula);
             psDeleteMatricula.setInt(1, turmas.getId());
-
-
             psDeleteMatricula.execute();
             psDeleteMatricula.close();
     
+            // Atualizar os dados da turma
+            String sqlUpdateTurmas = "UPDATE TURMAS SET SEMESTRE = ?, ANO = ?, CURSO = ?, PROFESSOR = ?, SALA = ?, HORA = ? WHERE ID = ?";
+            PreparedStatement psUpdateTurmas = conn.prepareStatement(sqlUpdateTurmas);
+            psUpdateTurmas.setInt(1, turmas.getSemestre());
+            psUpdateTurmas.setInt(2, turmas.getAno());
+            psUpdateTurmas.setInt(3, turmas.getCurso());
+            psUpdateTurmas.setInt(4, turmas.getProfessor());
+            psUpdateTurmas.setInt(5, turmas.getSala());
+            psUpdateTurmas.setString(6, turmas.getHora());
+            psUpdateTurmas.setInt(7, turmas.getId());
+            psUpdateTurmas.execute();
+            psUpdateTurmas.close();
+    
             // Inserir as novas associações de alunos para esta turma
-            for (Integer alunos : turmas.getAlunos()) {
+            for (Integer alunoId : turmas.getAlunos()) {
                 String sqlInsertMatricula = "INSERT INTO MATRICULA (TURMA, ALUNOS) VALUES (?, ?)";
                 PreparedStatement psInsertMatricula = conn.prepareStatement(sqlInsertMatricula);
                 psInsertMatricula.setInt(1, turmas.getId());
-                psInsertMatricula.setInt(2, alunos);
-
-
+                psInsertMatricula.setInt(2, alunoId);
                 psInsertMatricula.execute();
                 psInsertMatricula.close();
             }

@@ -16,10 +16,10 @@ import PessoaPack.Aluno;
 import PessoaPack.Professor;
 
 public class TelaTurmas {
-    
+
     public void exibir() {
         String hora;
-        int semestre, ano, ID, professor, sala, curso, alunos;
+        int semestre, ano, ID, professor, sala, curso;
 
         Scanner teclado = new Scanner(System.in);
 
@@ -52,29 +52,21 @@ public class TelaTurmas {
         System.out.println("Sala: ");
         sala = teclado.nextInt();
         teclado.nextLine();
-        System.out.println("Alunos: ");
+        System.out.println("Alunos (separados por vírgula): ");
         String alunosSelecionados = teclado.nextLine();
         System.out.println("Horario: ");
         hora = teclado.nextLine();
-        
-      // Converter os IDs dos alunos selecionados em uma lista de inteiros
-      List<Integer> alunosIds = new ArrayList<>();
-      String[] alunosIdsArray = alunosSelecionados.split(",");
-      for (String id : alunosIdsArray) {
-          alunosIds.add(Integer.parseInt(id.trim()));
-  }
 
-      Turmas turmas = new Turmas(0, 0, 0, 0, 0, 0, hora, alunosIds, alunosSelecionados);
+        // Converter os IDs dos alunos selecionados em uma lista de inteiros
+        List<Integer> alunosIds = new ArrayList<>();
+        String[] alunosIdsArray = alunosSelecionados.split(",");
+        for (String id : alunosIdsArray) {
+            alunosIds.add(Integer.parseInt(id.trim()));
+        }
 
-      turmas.setSemestre(semestre);
-      turmas.setAno(ano);
-      turmas.setCurso(curso);
-      turmas.setProfessor(professor);
-      turmas.setSala(sala);
-      turmas.setHora(hora);
-      turmas.setAlunos(alunosIds);
+        Turmas turmas = new Turmas(ID, semestre, ano, curso, professor, sala, hora, alunosIds, alunosSelecionados);
 
-      DAO_Turmas daoTurmas = new DAO_Turmas();
+        DAO_Turmas daoTurmas = new DAO_Turmas();
 
         daoTurmas.atualizar(turmas);
 
