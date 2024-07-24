@@ -1,4 +1,4 @@
-Trabalho - Projeto da avaliação A3
+Trabalho - Projeto da avaliação A3 Programação de Soluções Computacionais
 Professores: Marcelo Petri
 	     Jader Marques
 Alunos: Lucas de Oliveira Leandro
